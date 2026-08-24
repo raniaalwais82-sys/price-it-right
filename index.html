@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>Price It Right — by Rania Alwais</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{--pink:#c9607e;--pk:#a8455f;--pl:#fce8ee;--pm:#f0b8c8;--bg:#fff0f4;--card:#fff;--text:#1a0810;--t2:#3d1020;--t3:#6a3045;--border:#e0a0b4;--green:#1a6e3e;--gbg:#e2f5eb;--warn:#7a3e00;--wbg:#fff0dc;--blue:#1a4a8a;--bbg:#e8f0fc;--rad:16px;--rsm:11px;}
+html,body{min-height:100vh;font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);font-size:15px;}
+.app{max-width:500px;margin:0 auto;padding:16px 14px 130px;}
+.hdr{padding:18px 20px;background:#fff;border-radius:var(--rad);margin-bottom:14px;border:2px solid var(--pm);display:flex;align-items:center;justify-content:space-between;}
+.hdr-title{font-family:"Poppins",sans-serif;font-size:22px;font-weight:800;color:var(--text);}
+.hdr-title em{color:var(--pink);font-style:normal;}
+.hdr-sub{font-size:11px;color:var(--t3);font-weight:500;margin-top:2px;}
+.hdr-sub2{font-size:10px;color:var(--pink);font-weight:600;margin-top:1px;}
+.settings-btn{background:var(--pl);border:none;color:var(--pink);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.top-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.mode-pills{display:flex;background:var(--pm);border-radius:50px;padding:4px;gap:2px;width:100%;}
+.mpill{flex:1;padding:10px 8px;border-radius:50px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.mpill.on{background:#fff;color:var(--text);}
+.rrow{display:flex;gap:7px;align-items:center;width:100%;}
+.csel{flex:1;height:38px;padding:0 10px;border-radius:50px;border:2px solid var(--pm);background:#fff;color:var(--text);font-size:13px;font-weight:700;font-family:"Inter",sans-serif;cursor:pointer;}
+.langs{display:flex;background:var(--pm);border-radius:50px;padding:3px;gap:1px;}
+.lb{padding:6px 10px;border-radius:50px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.lb.on{background:#fff;color:var(--text);}
+.level-bar{display:flex;background:var(--pm);border-radius:50px;padding:4px;gap:2px;margin-bottom:12px;}
+.lvl{flex:1;padding:9px 8px;border-radius:50px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.lvl.on{background:#fff;color:var(--text);}
+.page{display:none;}.page.show{display:block;}
+.card{background:var(--card);border:2px solid var(--pm);border-radius:var(--rad);padding:18px;margin-bottom:12px;}
+.card-accent{border-right:5px solid var(--pink);}
+[dir=ltr] .card-accent{border-right:none;border-left:5px solid var(--pink);}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.ci{width:40px;height:40px;border-radius:11px;flex-shrink:0;background:linear-gradient(135deg,var(--pl),var(--pink));display:flex;align-items:center;justify-content:center;font-size:19px;}
+.ct{font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;color:var(--text);}
+.cdiv{height:1px;background:var(--pm);margin:12px 0;}
+.stitle{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px;}
+.ir{display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;}
+.il-wrap{flex:1;}
+.il{font-size:14px;font-weight:600;color:var(--t2);display:block;}
+.hint{font-size:11px;color:var(--t3);font-weight:500;margin-top:2px;line-height:1.4;}
+.iw{position:relative;flex-shrink:0;margin-top:2px;}
+.iw input{width:120px;text-align:right;padding:9px 36px 9px 10px;border:2px solid var(--border);border-radius:var(--rsm);background:#fff;color:var(--text);font-size:14px;font-weight:700;font-family:"Inter",sans-serif;-moz-appearance:textfield;}
+.iw input::-webkit-outer-spin-button,.iw input::-webkit-inner-spin-button{-webkit-appearance:none;}
+.iw input:focus{outline:none;border-color:var(--pink);}
+.isym{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--t3);font-weight:700;pointer-events:none;}
+[dir=ltr] .iw input{text-align:left;padding:9px 10px 9px 36px;}
+[dir=ltr] .isym{right:auto;left:8px;}
+.ptog{display:flex;background:var(--pl);border-radius:50px;padding:3px;gap:2px;width:fit-content;margin-bottom:8px;}
+.pb{padding:5px 12px;border-radius:50px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.pb.on{background:#fff;color:var(--text);}
+.style-tog{display:flex;gap:8px;margin-bottom:12px;}
+.style-opt{flex:1;padding:11px 8px;border-radius:var(--rsm);border:2px solid var(--pm);cursor:pointer;background:#fff;text-align:center;}
+.style-opt.on{border-color:var(--pink);background:var(--pl);}
+.style-opt-title{font-size:13px;font-weight:700;color:var(--t2);}
+.style-opt-sub{font-size:11px;color:var(--t3);margin-top:2px;}
+.ibox{background:var(--bbg);border-radius:var(--rsm);padding:10px 12px;margin-bottom:11px;font-size:12px;font-weight:600;color:var(--blue);line-height:1.6;}
+.szblock{background:var(--pl);border-radius:var(--rsm);padding:13px;margin-bottom:12px;}
+.szrow{display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap;}
+.badge{min-width:38px;text-align:center;font-size:11px;font-weight:700;color:#fff;background:var(--pink);border-radius:50px;padding:3px 7px;flex-shrink:0;}
+.qty{min-width:30px;font-size:14px;font-weight:700;color:var(--text);text-align:center;}
+.qlbl{font-size:11px;color:var(--t3);font-weight:600;flex:1;}
+.bagrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:5px;padding-right:45px;}
+[dir=ltr] .bagrow{padding-right:0;padding-left:45px;}
+.bsel{height:27px;padding:0 6px;border-radius:50px;border:1.5px solid var(--border);background:#fff;color:var(--text);font-size:11px;font-weight:700;cursor:pointer;}
+.binfo{font-size:12px;font-weight:700;color:var(--pink);}
+.pinp{width:78px;text-align:center;padding:5px 6px;border:1.5px solid var(--border);border-radius:50px;background:#fff;color:var(--text);font-size:12px;font-weight:700;-moz-appearance:textfield;}
+.pinp::-webkit-outer-spin-button,.pinp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.pinp:focus{outline:none;border-color:var(--pink);}
+.psym{font-size:10px;color:var(--t3);font-weight:700;}
+.prow{display:flex;align-items:center;gap:5px;margin-top:5px;padding-right:45px;flex-wrap:wrap;}
+[dir=ltr] .prow{padding-right:0;padding-left:45px;}
+.copy-btn{padding:3px 9px;border-radius:50px;border:1.5px solid var(--pink);background:var(--pl);color:var(--pink);font-size:11px;font-weight:700;cursor:pointer;}
+.addon-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
+.acard{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:9px;}
+.aname{font-size:11px;font-weight:700;color:var(--t2);margin-bottom:7px;text-align:center;}
+.arow{display:flex;align-items:center;gap:3px;margin-bottom:5px;}
+.albl{font-size:10px;font-weight:600;color:var(--t3);min-width:26px;}
+.ainp{flex:1;width:0;text-align:center;padding:4px 3px;border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;-moz-appearance:textfield;}
+.ainp::-webkit-outer-spin-button,.ainp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.ainp:focus{outline:none;border-color:var(--pink);}
+.bres{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:12px;}
+.bres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;}
+.bri{text-align:center;}
+.brl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:3px;}
+.brv{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;color:var(--text);}
+.brv.pink{color:var(--pink);}
+.bres-price{text-align:center;padding-top:8px;border-top:1px solid var(--pm);}
+.bres-price .brv{font-size:21px;color:var(--green);}
+.markup-box{background:var(--pl);border-radius:var(--rsm);padding:13px;margin-bottom:10px;}
+.markup-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px;}
+.markup-lbl{font-size:14px;font-weight:700;color:var(--t2);}
+.markup-hint{font-size:11px;color:var(--t3);margin-top:3px;line-height:1.5;}
+.markup-val{font-family:"Poppins",sans-serif;font-size:32px;font-weight:800;color:var(--pink);line-height:1;}
+.markup-val span{font-size:14px;font-weight:400;}
+input[type=range]{width:100%;height:5px;border-radius:3px;accent-color:var(--pink);cursor:pointer;appearance:none;background:var(--pm);}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;border-radius:50%;background:var(--pink);border:3px solid #fff;box-shadow:0 2px 6px rgba(201,96,126,.4);cursor:pointer;}
+.markup-scale{display:flex;justify-content:space-between;margin-top:4px;}
+.mscale{font-size:10px;font-weight:700;color:var(--t3);}
+.lesson{border-radius:var(--rsm);padding:11px 13px;margin:10px 0;font-size:13px;line-height:1.7;font-weight:500;}
+.lesson.n{background:var(--bbg);color:var(--blue);}
+.lesson.r{background:var(--wbg);color:var(--warn);}
+.lesson.o{background:var(--wbg);color:var(--warn);}
+.lesson.g{background:var(--gbg);color:var(--green);}
+.minwarn{background:var(--wbg);border-radius:var(--rsm);padding:10px 12px;margin-bottom:10px;font-size:12px;font-weight:700;color:var(--warn);display:none;}
+.minwarn.on{display:block;}
+.res-hdr{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;text-align:center;}
+.resgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.rc{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:13px;}
+.rc.big{grid-column:span 2;background:linear-gradient(135deg,var(--pink),var(--pk));border-color:var(--pk);padding:16px;}
+.rl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:6px;}
+.rc.big .rl{color:rgba(255,255,255,.75);}
+.rv{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;color:var(--text);}
+.rc.big .rv{color:#fff;font-size:28px;}
+.rv.g{color:var(--green);}
+.btn-pink{width:100%;padding:13px;border-radius:var(--rsm);background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;margin-bottom:8px;}
+.btn-out{width:100%;padding:12px;border-radius:var(--rsm);background:#fff;color:var(--pink);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;margin-bottom:8px;}
+.transfer-ok{background:var(--gbg);border-radius:var(--rsm);padding:10px;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--green);text-align:center;display:none;}
+.transfer-ok.on{display:block;}
+.lbox{background:var(--pl);border-radius:var(--rsm);padding:12px;margin-bottom:10px;}
+.lrow{display:flex;align-items:center;gap:5px;margin-bottom:7px;flex-wrap:wrap;}
+.llbl{font-size:13px;font-weight:600;color:var(--t2);flex:1;}
+.leq{font-size:13px;font-weight:700;color:var(--pink);margin-right:auto;}
+[dir=ltr] .leq{margin-right:0;margin-left:auto;}
+.ltotal-row{display:flex;justify-content:space-between;padding-top:7px;border-top:1px solid var(--pm);}
+.footer{text-align:center;padding:8px 0 16px;}
+.ftext{font-family:"Poppins",sans-serif;font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;}
+.ftext strong{color:var(--pink);}
+.modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(26,8,16,.55);align-items:center;justify-content:center;padding:14px;}
+.modal.on{display:flex;}
+.mbox{background:#fff;border-radius:var(--rad);max-width:460px;width:100%;max-height:92vh;overflow-y:auto;}
+.mhd{background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;padding:17px 20px;border-radius:var(--rad) var(--rad) 0 0;display:flex;justify-content:space-between;align-items:center;}
+.mhd-title{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;}
+.mclose{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;}
+.mbody{padding:18px 20px;}
+.ssec{margin-bottom:18px;}
+.slbl{font-size:14px;font-weight:700;color:var(--t2);margin-bottom:3px;}
+.shint{font-size:11px;color:var(--t3);margin-bottom:8px;line-height:1.5;}
+.sinp{width:130px;padding:8px 10px;border:2px solid var(--border);border-radius:var(--rsm);font-size:14px;font-weight:700;font-family:"Inter",sans-serif;}
+.sinp-row{display:flex;align-items:center;gap:8px;}
+.brand-row{display:flex;gap:6px;align-items:center;margin-bottom:7px;background:var(--pl);border-radius:9px;padding:8px;}
+.brand-del{background:#fff;border:1.5px solid var(--border);border-radius:7px;width:28px;height:28px;cursor:pointer;color:var(--warn);font-size:13px;flex-shrink:0;}
+.add-brand-btn{width:100%;padding:9px;border-radius:8px;background:var(--pl);border:1.5px dashed var(--pink);color:var(--pink);font-weight:700;font-size:13px;cursor:pointer;}
+.qfield{background:var(--bg);border-radius:9px;padding:8px 10px;}
+.qfield label{display:block;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:2px;}
+.qfield input,.qfield textarea{width:100%;border:none;background:transparent;font-size:13px;font-weight:700;color:var(--text);font-family:"Inter",sans-serif;}
+.qfield textarea{resize:none;height:40px;}
+.qfield input:focus,.qfield textarea:focus{outline:none;}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;}
+.qstitle{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:7px;padding-bottom:4px;border-bottom:1.5px solid var(--pm);}
+.qline{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--t2);margin-bottom:5px;}
+.qline span:last-child{font-weight:700;color:var(--text);}
+.qtotal{background:linear-gradient(135deg,var(--pink),var(--pk));border-radius:var(--rsm);padding:12px 14px;margin:10px 0;}
+.qtotal-lbl{font-size:11px;color:rgba(255,255,255,.8);font-weight:700;text-transform:uppercase;margin-bottom:2px;}
+.qtotal-val{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;color:#fff;}
+.qdep-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.qdep-card{background:var(--pl);border-radius:9px;padding:10px;text-align:center;}
+.qdep-lbl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:2px;}
+.qdep-val{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;color:var(--pink);}
+.qbtns{display:flex;gap:7px;}
+.qprint{flex:1;padding:12px;border-radius:var(--rsm);background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;}
+.qclose-btn{padding:12px 14px;border-radius:var(--rsm);background:var(--pl);color:var(--pk);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;}
+.print-hdr{display:none;text-align:center;padding:16px 0 10px;border-bottom:2px solid var(--pm);margin-bottom:12px;}
+.qnotes-disp{font-size:12px;color:var(--t3);font-style:italic;margin-bottom:9px;}
+@media print{body>*{visibility:hidden;}#printable,#printable *{visibility:visible;}#printable{position:fixed;inset:0;padding:28px;}.no-print{display:none!important;}}
+</style>
+</head>
+<body><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>Price It Right — by Rania Alwais</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{--pink:#c9607e;--pk:#a8455f;--pl:#fce8ee;--pm:#f0b8c8;--bg:#fff0f4;--card:#fff;--text:#1a0810;--t2:#3d1020;--t3:#6a3045;--border:#e0a0b4;--green:#1a6e3e;--gbg:#e2f5eb;--warn:#7a3e00;--wbg:#fff0dc;--blue:#1a4a8a;--bbg:#e8f0fc;--rad:16px;--rsm:11px;}
+html,body{min-height:100vh;font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);font-size:15px;}
+.app{max-width:500px;margin:0 auto;padding:16px 14px 130px;}
+.hdr{padding:18px 20px;background:#fff;border-radius:var(--rad);margin-bottom:14px;border:2px solid var(--pm);display:flex;align-items:center;justify-content:space-between;}
+.hdr-title{font-family:"Poppins",sans-serif;font-size:22px;font-weight:800;color:var(--text);}
+.hdr-title em{color:var(--pink);font-style:normal;}
+.hdr-sub{font-size:11px;color:var(--t3);font-weight:500;margin-top:2px;}
+.hdr-sub2{font-size:10px;color:var(--pink);font-weight:600;margin-top:1px;}
+.settings-btn{background:var(--pl);border:none;color:var(--pink);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.top-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+.mode-pills{display:flex;background:var(--pm);border-radius:50px;padding:4px;gap:2px;width:100%;}
+.mpill{flex:1;padding:10px 8px;border-radius:50px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.mpill.on{background:#fff;color:var(--text);}
+.rrow{display:flex;gap:7px;align-items:center;width:100%;}
+.csel{flex:1;height:38px;padding:0 10px;border-radius:50px;border:2px solid var(--pm);background:#fff;color:var(--text);font-size:13px;font-weight:700;font-family:"Inter",sans-serif;cursor:pointer;}
+.langs{display:flex;background:var(--pm);border-radius:50px;padding:3px;gap:1px;}
+.lb{padding:6px 10px;border-radius:50px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.lb.on{background:#fff;color:var(--text);}
+.level-bar{display:flex;background:var(--pm);border-radius:50px;padding:4px;gap:2px;margin-bottom:12px;}
+.lvl{flex:1;padding:9px 8px;border-radius:50px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.lvl.on{background:#fff;color:var(--text);}
+.page{display:none;}.page.show{display:block;}
+.card{background:var(--card);border:2px solid var(--pm);border-radius:var(--rad);padding:18px;margin-bottom:12px;}
+.card-accent{border-right:5px solid var(--pink);}
+[dir=ltr] .card-accent{border-right:none;border-left:5px solid var(--pink);}
+.ch{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.ci{width:40px;height:40px;border-radius:11px;flex-shrink:0;background:linear-gradient(135deg,var(--pl),var(--pink));display:flex;align-items:center;justify-content:center;font-size:19px;}
+.ct{font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;color:var(--text);}
+.cdiv{height:1px;background:var(--pm);margin:12px 0;}
+.stitle{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px;}
+.ir{display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;}
+.il-wrap{flex:1;}
+.il{font-size:14px;font-weight:600;color:var(--t2);display:block;}
+.hint{font-size:11px;color:var(--t3);font-weight:500;margin-top:2px;line-height:1.4;}
+.iw{position:relative;flex-shrink:0;margin-top:2px;}
+.iw input{width:120px;text-align:right;padding:9px 36px 9px 10px;border:2px solid var(--border);border-radius:var(--rsm);background:#fff;color:var(--text);font-size:14px;font-weight:700;font-family:"Inter",sans-serif;-moz-appearance:textfield;}
+.iw input::-webkit-outer-spin-button,.iw input::-webkit-inner-spin-button{-webkit-appearance:none;}
+.iw input:focus{outline:none;border-color:var(--pink);}
+.isym{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--t3);font-weight:700;pointer-events:none;}
+[dir=ltr] .iw input{text-align:left;padding:9px 10px 9px 36px;}
+[dir=ltr] .isym{right:auto;left:8px;}
+.ptog{display:flex;background:var(--pl);border-radius:50px;padding:3px;gap:2px;width:fit-content;margin-bottom:8px;}
+.pb{padding:5px 12px;border-radius:50px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
+.pb.on{background:#fff;color:var(--text);}
+.style-tog{display:flex;gap:8px;margin-bottom:12px;}
+.style-opt{flex:1;padding:11px 8px;border-radius:var(--rsm);border:2px solid var(--pm);cursor:pointer;background:#fff;text-align:center;}
+.style-opt.on{border-color:var(--pink);background:var(--pl);}
+.style-opt-title{font-size:13px;font-weight:700;color:var(--t2);}
+.style-opt-sub{font-size:11px;color:var(--t3);margin-top:2px;}
+.ibox{background:var(--bbg);border-radius:var(--rsm);padding:10px 12px;margin-bottom:11px;font-size:12px;font-weight:600;color:var(--blue);line-height:1.6;}
+.szblock{background:var(--pl);border-radius:var(--rsm);padding:13px;margin-bottom:12px;}
+.szrow{display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap;}
+.badge{min-width:38px;text-align:center;font-size:11px;font-weight:700;color:#fff;background:var(--pink);border-radius:50px;padding:3px 7px;flex-shrink:0;}
+.qty{min-width:30px;font-size:14px;font-weight:700;color:var(--text);text-align:center;}
+.qlbl{font-size:11px;color:var(--t3);font-weight:600;flex:1;}
+.bagrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:5px;padding-right:45px;}
+[dir=ltr] .bagrow{padding-right:0;padding-left:45px;}
+.bsel{height:27px;padding:0 6px;border-radius:50px;border:1.5px solid var(--border);background:#fff;color:var(--text);font-size:11px;font-weight:700;cursor:pointer;}
+.binfo{font-size:12px;font-weight:700;color:var(--pink);}
+.pinp{width:78px;text-align:center;padding:5px 6px;border:1.5px solid var(--border);border-radius:50px;background:#fff;color:var(--text);font-size:12px;font-weight:700;-moz-appearance:textfield;}
+.pinp::-webkit-outer-spin-button,.pinp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.pinp:focus{outline:none;border-color:var(--pink);}
+.psym{font-size:10px;color:var(--t3);font-weight:700;}
+.prow{display:flex;align-items:center;gap:5px;margin-top:5px;padding-right:45px;flex-wrap:wrap;}
+[dir=ltr] .prow{padding-right:0;padding-left:45px;}
+.copy-btn{padding:3px 9px;border-radius:50px;border:1.5px solid var(--pink);background:var(--pl);color:var(--pink);font-size:11px;font-weight:700;cursor:pointer;}
+.addon-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
+.acard{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:9px;}
+.aname{font-size:11px;font-weight:700;color:var(--t2);margin-bottom:7px;text-align:center;}
+.arow{display:flex;align-items:center;gap:3px;margin-bottom:5px;}
+.albl{font-size:10px;font-weight:600;color:var(--t3);min-width:26px;}
+.ainp{flex:1;width:0;text-align:center;padding:4px 3px;border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;-moz-appearance:textfield;}
+.ainp::-webkit-outer-spin-button,.ainp::-webkit-inner-spin-button{-webkit-appearance:none;}
+.ainp:focus{outline:none;border-color:var(--pink);}
+.bres{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:12px;}
+.bres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;}
+.bri{text-align:center;}
+.brl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:3px;}
+.brv{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;color:var(--text);}
+.brv.pink{color:var(--pink);}
+.bres-price{text-align:center;padding-top:8px;border-top:1px solid var(--pm);}
+.bres-price .brv{font-size:21px;color:var(--green);}
+.markup-box{background:var(--pl);border-radius:var(--rsm);padding:13px;margin-bottom:10px;}
+.markup-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px;}
+.markup-lbl{font-size:14px;font-weight:700;color:var(--t2);}
+.markup-hint{font-size:11px;color:var(--t3);margin-top:3px;line-height:1.5;}
+.markup-val{font-family:"Poppins",sans-serif;font-size:32px;font-weight:800;color:var(--pink);line-height:1;}
+.markup-val span{font-size:14px;font-weight:400;}
+input[type=range]{width:100%;height:5px;border-radius:3px;accent-color:var(--pink);cursor:pointer;appearance:none;background:var(--pm);}
+input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;border-radius:50%;background:var(--pink);border:3px solid #fff;box-shadow:0 2px 6px rgba(201,96,126,.4);cursor:pointer;}
+.markup-scale{display:flex;justify-content:space-between;margin-top:4px;}
+.mscale{font-size:10px;font-weight:700;color:var(--t3);}
+.lesson{border-radius:var(--rsm);padding:11px 13px;margin:10px 0;font-size:13px;line-height:1.7;font-weight:500;}
+.lesson.n{background:var(--bbg);color:var(--blue);}
+.lesson.r{background:var(--wbg);color:var(--warn);}
+.lesson.o{background:var(--wbg);color:var(--warn);}
+.lesson.g{background:var(--gbg);color:var(--green);}
+.minwarn{background:var(--wbg);border-radius:var(--rsm);padding:10px 12px;margin-bottom:10px;font-size:12px;font-weight:700;color:var(--warn);display:none;}
+.minwarn.on{display:block;}
+.res-hdr{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;text-align:center;}
+.resgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.rc{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:13px;}
+.rc.big{grid-column:span 2;background:linear-gradient(135deg,var(--pink),var(--pk));border-color:var(--pk);padding:16px;}
+.rl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:6px;}
+.rc.big .rl{color:rgba(255,255,255,.75);}
+.rv{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;color:var(--text);}
+.rc.big .rv{color:#fff;font-size:28px;}
+.rv.g{color:var(--green);}
+.btn-pink{width:100%;padding:13px;border-radius:var(--rsm);background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;margin-bottom:8px;}
+.btn-out{width:100%;padding:12px;border-radius:var(--rsm);background:#fff;color:var(--pink);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;margin-bottom:8px;}
+.transfer-ok{background:var(--gbg);border-radius:var(--rsm);padding:10px;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--green);text-align:center;display:none;}
+.transfer-ok.on{display:block;}
+.lbox{background:var(--pl);border-radius:var(--rsm);padding:12px;margin-bottom:10px;}
+.lrow{display:flex;align-items:center;gap:5px;margin-bottom:7px;flex-wrap:wrap;}
+.llbl{font-size:13px;font-weight:600;color:var(--t2);flex:1;}
+.leq{font-size:13px;font-weight:700;color:var(--pink);margin-right:auto;}
+[dir=ltr] .leq{margin-right:0;margin-left:auto;}
+.ltotal-row{display:flex;justify-content:space-between;padding-top:7px;border-top:1px solid var(--pm);}
+.footer{text-align:center;padding:8px 0 16px;}
+.ftext{font-family:"Poppins",sans-serif;font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;}
+.ftext strong{color:var(--pink);}
+.modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(26,8,16,.55);align-items:center;justify-content:center;padding:14px;}
+.modal.on{display:flex;}
+.mbox{background:#fff;border-radius:var(--rad);max-width:460px;width:100%;max-height:92vh;overflow-y:auto;}
+.mhd{background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;padding:17px 20px;border-radius:var(--rad) var(--rad) 0 0;display:flex;justify-content:space-between;align-items:center;}
+.mhd-title{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;}
+.mclose{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;}
+.mbody{padding:18px 20px;}
+.ssec{margin-bottom:18px;}
+.slbl{font-size:14px;font-weight:700;color:var(--t2);margin-bottom:3px;}
+.shint{font-size:11px;color:var(--t3);margin-bottom:8px;line-height:1.5;}
+.sinp{width:130px;padding:8px 10px;border:2px solid var(--border);border-radius:var(--rsm);font-size:14px;font-weight:700;font-family:"Inter",sans-serif;}
+.sinp-row{display:flex;align-items:center;gap:8px;}
+.brand-row{display:flex;gap:6px;align-items:center;margin-bottom:7px;background:var(--pl);border-radius:9px;padding:8px;}
+.brand-del{background:#fff;border:1.5px solid var(--border);border-radius:7px;width:28px;height:28px;cursor:pointer;color:var(--warn);font-size:13px;flex-shrink:0;}
+.add-brand-btn{width:100%;padding:9px;border-radius:8px;background:var(--pl);border:1.5px dashed var(--pink);color:var(--pink);font-weight:700;font-size:13px;cursor:pointer;}
+.qfield{background:var(--bg);border-radius:9px;padding:8px 10px;}
+.qfield label{display:block;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:2px;}
+.qfield input,.qfield textarea{width:100%;border:none;background:transparent;font-size:13px;font-weight:700;color:var(--text);font-family:"Inter",sans-serif;}
+.qfield textarea{resize:none;height:40px;}
+.qfield input:focus,.qfield textarea:focus{outline:none;}
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;}
+.qstitle{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:7px;padding-bottom:4px;border-bottom:1.5px solid var(--pm);}
+.qline{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--t2);margin-bottom:5px;}
+.qline span:last-child{font-weight:700;color:var(--text);}
+.qtotal{background:linear-gradient(135deg,var(--pink),var(--pk));border-radius:var(--rsm);padding:12px 14px;margin:10px 0;}
+.qtotal-lbl{font-size:11px;color:rgba(255,255,255,.8);font-weight:700;text-transform:uppercase;margin-bottom:2px;}
+.qtotal-val{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;color:#fff;}
+.qdep-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.qdep-card{background:var(--pl);border-radius:9px;padding:10px;text-align:center;}
+.qdep-lbl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:2px;}
+.qdep-val{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;color:var(--pink);}
+.qbtns{display:flex;gap:7px;}
+.qprint{flex:1;padding:12px;border-radius:var(--rsm);background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;}
+.qclose-btn{padding:12px 14px;border-radius:var(--rsm);background:var(--pl);color:var(--pk);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;}
+.print-hdr{display:none;text-align:center;padding:16px 0 10px;border-bottom:2px solid var(--pm);margin-bottom:12px;}
+.qnotes-disp{font-size:12px;color:var(--t3);font-style:italic;margin-bottom:9px;}
+@media print{body>*{visibility:hidden;}#printable,#printable *{visibility:visible;}#printable{position:fixed;inset:0;padding:28px;}.no-print{display:none!important;}}
+</style>
+</head>
+<body>
+<!-- SETTINGS MODAL -->
+<div class="modal" id="m-settings">
+  <div class="mbox">
+    <div class="mhd"><div class="mhd-title" id="st-title">الإعدادات</div><button class="mclose" id="btn-st-close">✕</button></div>
+    <div class="mbody">
+      <div class="ssec">
+        <div class="slbl" id="st-wlbl">نسبة الهالك %</div>
+        <div class="shint" id="st-whint">تُضاف تلقائياً على كل كمية بالونات</div>
+        <div class="sinp-row"><input type="number" class="sinp" id="wastage-pct" value="10" min="0" max="50"><span style="font-weight:700;color:var(--t3)">%</span></div>
+      </div>
+      <div class="ssec">
+        <div class="slbl" id="st-mplbl">الحد الأدنى للربح</div>
+        <div class="shint" id="st-mphint">تنبيه فقط — بدون رفع السعر</div>
+        <div class="sinp-row"><input type="number" class="sinp" id="min-profit" value="0" min="0"><span id="st-sym" style="font-weight:700;color:var(--t3)">ج.م</span></div>
+      </div>
+      <div class="ssec">
+        <div class="slbl" id="st-blbl">البراندات المحفوظة</div>
+        <div class="shint" id="st-bhint">اسم البراند + سعر الكيس + حجمه</div>
+        <div id="brands-list"></div>
+        <button class="add-brand-btn" id="btn-add-brand">+ إضافة براند</button>
+      </div>
+      <div class="ssec">
+        <div class="slbl" id="st-hlbl">آخر 5 فعاليات</div>
+        <div id="history-list"></div>
+      </div>
+      <button class="btn-pink" id="btn-st-save">حفظ الإعدادات</button>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE MODAL -->
+<div class="modal" id="m-quote">
+  <div class="mbox" id="printable">
+    <div class="mhd no-print"><div class="mhd-title">🎀 <span id="ql-title">عرض السعر</span></div><button class="mclose no-print" id="btn-q-close">✕</button></div>
+    <div class="print-hdr" id="print-hdr">
+      <img id="ph-logo" src="" style="max-height:55px;max-width:110px;object-fit:contain;display:none;margin-bottom:7px;">
+      <div style="font-family:Poppins,sans-serif;font-size:21px;font-weight:700;color:var(--pink)" id="ph-biz"></div>
+      <div style="font-size:11px;color:var(--t3);font-weight:600;margin-top:3px" id="ph-date"></div>
+    </div>
+    <div class="mbody">
+      <div class="qgrid">
+        <div class="qfield"><label id="ql-biz">اسم النشاط</label><input type="text" id="q-biz" placeholder="اسم نشاطك"></div>
+        <div class="qfield"><label id="ql-date">التاريخ</label><input type="date" id="q-date"></div>
+        <div class="qfield" style="grid-column:span 2"><label id="ql-client">اسم العميل</label><input type="text" id="q-client" placeholder="اسم العميل"></div>
+        <div class="qfield" style="grid-column:span 2"><label id="ql-event">نوع الفعالية</label><input type="text" id="q-event" placeholder="زفاف، عيد ميلاد..."></div>
+        <div class="qfield" style="grid-column:span 2"><label id="ql-notes">ملاحظات</label><textarea id="q-notes" placeholder="موعد التسليم، شروط الدفع..."></textarea></div>
+      </div>
+      <div class="qnotes-disp" id="q-notes-disp"></div>
+      <div class="qstitle" id="ql-breakdown">تفصيل الخدمات</div>
+      <div id="q-lines" style="margin-bottom:8px"></div>
+      <div class="qtotal"><div class="qtotal-lbl" id="ql-total">السعر الإجمالي</div><div class="qtotal-val" id="q-total-val">—</div></div>
+      <div class="qdep-grid">
+        <div class="qdep-card"><div class="qdep-lbl" id="ql-dep">العربون 50%</div><div class="qdep-val" id="q-dep-val">—</div></div>
+        <div class="qdep-card"><div class="qdep-lbl" id="ql-bal">المبلغ المتبقي</div><div class="qdep-val" id="q-bal-val">—</div></div>
+      </div>
+      <div class="qbtns no-print">
+        <button class="qclose-btn" id="btn-q-close2">✕ <span id="ql-close">إغلاق</span></button>
+        <button class="qprint" id="btn-q-print">🖨️ <span id="ql-print">طباعة</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="app">
+  <div class="hdr">
+    <div>
+      <div class="hdr-title">Price It <em>Right</em></div>
+      <div class="hdr-sub">Professional Event &amp; Balloon Calculator</div>
+      <div class="hdr-sub2">Designed by Rania Alwais</div>
+    </div>
+    <button class="settings-btn" id="btn-settings">⚙️</button>
+  </div>
+
+  <div class="top-bar">
+    <div class="mode-pills">
+      <button class="mpill on" id="tab-event">🎉 الفعالية الكاملة</button>
+      <button class="mpill" id="tab-balloons">🎈 البالونات فقط</button>
+    </div>
+    <div class="rrow">
+      <select class="csel" id="country">
+        <option value="EG">🇪🇬 ج.م</option><option value="SA">🇸🇦 ر.س</option>
+        <option value="AE">🇦🇪 د.إ</option><option value="KW">🇰🇼 د.ك</option>
+        <option value="QA">🇶🇦 ر.ق</option><option value="JO">🇯🇴 د.أ</option>
+        <option value="US">🇺🇸 $</option><option value="GB">🇬🇧 £</option>
+        <option value="FR">🇫🇷 EUR</option><option value="DE">🇩🇪 EUR</option>
+      </select>
+      <div class="langs">
+        <button class="lb on" id="lb-ar">ع</button>
+        <button class="lb" id="lb-en">EN</button>
+        <button class="lb" id="lb-fr">FR</button>
+        <button class="lb" id="lb-de">DE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT PAGE -->
+  <div class="page show" id="page-event">
+    <div class="level-bar">
+      <button class="lvl on" id="lvl-s">⭐ مبتدئ</button>
+      <button class="lvl" id="lvl-p">🌟 محترف</button>
+    </div>
+    <div class="card card-accent">
+      <div class="ch"><div class="ci">🎈</div><div class="ct" id="el-s1">المواد</div></div>
+      <div class="ibox" id="el-note">💡 احسبي تكلفة البالونات في تبويب البالونات ثم اضغطي نقل</div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-balloons">تكلفة البالونات</span><span class="hint" id="eh-balloons">من تبويب البالونات أو أدخليها يدوياً</span></div><div class="iw"><input type="number" id="e-balloons" value="0" min="0"><span class="isym" id="es-b">ج.م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-helium">هيليوم / غاز</span><span class="hint" id="eh-helium">تكلفة الهيليوم في الفعالية</span></div><div class="iw"><input type="number" id="e-helium" value="0" min="0"><span class="isym" id="es-h">ج.م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-supplies">شريط ومستلزمات</span><span class="hint" id="eh-supplies">شريط، لاصق، خطافات، خيط</span></div><div class="iw"><input type="number" id="e-supplies" value="0" min="0"><span class="isym" id="es-s">ج.م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-metal">إيجار ديكورات معدنية</span><span class="hint" id="eh-metal">أقواس، حوامل، إطارات معدنية</span></div><div class="iw"><input type="number" id="e-metal" value="0" min="0"><span class="isym" id="es-m">ج.م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-wood">إيجار ديكورات خشبية</span><span class="hint" id="eh-wood">خلفيات وحوامل وستاندات خشبية</span></div><div class="iw"><input type="number" id="e-wood" value="0" min="0"><span class="isym" id="es-w">ج.م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-extras">ليزر وطباعة وإضافات</span><span class="hint" id="eh-extras">أحرف ليزر، أكريليك، طباعة مخصصة</span></div><div class="iw"><input type="number" id="e-extras" value="0" min="0"><span class="isym" id="es-ex">ج.م</span></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ci">⏱️</div><div class="ct" id="el-s2">العمالة والوقت</div></div>
+      <div id="div-ls">
+        <div class="ir"><div class="il-wrap"><span class="il" id="el-ls">تكلفة عمالتك الإجمالية</span><span class="hint" id="eh-ls">مجموع ما تدفعيه لنفسك</span></div><div class="iw"><input type="number" id="e-ls" value="0" min="0"><span class="isym" id="es-ls">ج.م</span></div></div>
+      </div>
+      <div id="div-lp" style="display:none">
+        <div class="lbox">
+          <div class="lrow"><span class="llbl" id="el-mh">🎈 تصنيع البالونات</span><input type="number" class="pinp" id="e-mh" value="0" min="0" step="0.5"><span class="psym" id="el-hrs">ساعة</span><span style="color:var(--t3)">×</span><input type="number" class="pinp" id="e-mr" value="0" min="0"><span class="psym" id="es-mr">ج.م</span><span class="leq" id="eq-mk">= 0</span></div>
+          <div class="lrow"><span class="llbl" id="el-sh">🔧 تركيب في المكان</span><input type="number" class="pinp" id="e-sh" value="0" min="0" step="0.5"><span class="psym" id="el-hrs2">ساعة</span><span style="color:var(--t3)">×</span><input type="number" class="pinp" id="e-sr" value="0" min="0"><span class="psym" id="es-sr">ج.م</span><span class="leq" id="eq-sk">= 0</span></div>
+          <div class="ltotal-row"><span style="font-size:12px;font-weight:700;color:var(--t3)" id="el-ltotal">إجمالي العمالة</span><span style="font-size:15px;font-weight:700;color:var(--pink)" id="ltotal-val">0</span></div>
+        </div>
+      </div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-delivery">التوصيل</span><span class="hint" id="eh-delivery">تكلفة النقل إلى المكان والعودة</span></div><div class="iw"><input type="number" id="e-delivery" value="0" min="0"><span class="isym" id="es-d">ج.م</span></div></div>
+      <div id="div-oh" style="display:none">
+        <div class="cdiv"></div>
+        <div class="ir"><div class="il-wrap"><span class="il" id="el-oh">مصاريف عامة %</span><span class="hint" id="eh-oh">هاتف، صيانة، بنزين — عادةً 5-10%</span></div><div class="iw"><input type="number" id="e-oh" value="0" min="0" max="30"><span class="isym">%</span></div></div>
+      </div>
+      <div class="cdiv"></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-disc">خصم للعميل</span><span class="hint" id="eh-disc">فقط إذا أعطيتِ سعراً خاصاً</span></div><div class="iw"><input type="number" id="e-disc" value="0" min="0"><span class="isym" id="es-disc">ج.م</span></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ci">💰</div><div class="ct" id="el-s3">ربحك</div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-pct">نسبة الربح %</span><span class="hint" id="eh-pct">تُضاف فوق التكاليف — الموصى به 25-40%</span></div><div class="iw"><input type="number" id="e-pct" value="30" min="5" max="100"><span class="isym">%</span></div></div>
+    </div>
+    <div class="minwarn" id="e-minwarn"></div>
+    <div class="lesson n" id="e-lesson">أدخلي تكاليفك لرؤية الحساب الكامل.</div>
+    <div class="res-hdr" id="el-results">ملخص عرض السعر</div>
+    <div class="resgrid">
+      <div class="rc"><div class="rl" id="el-cost">إجمالي التكلفة</div><div class="rv" id="e-out-cost">—</div></div>
+      <div class="rc"><div class="rl" id="el-profit">ربحك</div><div class="rv g" id="e-out-profit">—</div></div>
+      <div class="rc big"><div class="rl" id="el-price">السعر النهائي للعميل</div><div class="rv" id="e-out-price">—</div></div>
+      <div class="rc"><div class="rl" id="el-dep">العربون 50%</div><div class="rv" id="e-out-dep">—</div></div>
+      <div class="rc"><div class="rl" id="el-bal">المبلغ المتبقي</div><div class="rv" id="e-out-bal">—</div></div>
+    </div>
+    <button class="btn-out" id="btn-e-reset">🔄 إعادة تعيين</button>
+    <button class="btn-out" id="btn-e-quote">🖨️ عرض سعر للعميل</button>
+    <button class="btn-out" id="btn-e-wa">💬 مشاركة عبر واتساب</button>
+    <div class="footer"><div class="ftext">Designed by <strong>Rania Alwais</strong></div></div>
+  </div>
+
+  <!-- BALLOONS PAGE -->
+  <div class="page" id="page-balloons">
+    <!-- GARLAND -->
+    <div class="card card-accent">
+      <div class="ch"><div class="ci">🌿</div><div class="ct" id="bl-garland">جارلاند عضوي</div></div>
+      <div class="style-tog">
+        <div class="style-opt on" id="style-slim"><div class="style-opt-title" id="sst">نحيف</div><div class="style-opt-sub" id="sss">أساس 8 إنش</div></div>
+        <div class="style-opt" id="style-lush"><div class="style-opt-title" id="slt">ممتلئ</div><div class="style-opt-sub" id="sls">أساس 11/12 إنش</div></div>
+      </div>
+      <div class="ibox" id="garland-info">نحيف: 24×8" + 18×5" + 2×18" لكل متر</div>
+      <div class="ptog"><button class="pb on" id="pg-m">متر</button><button class="pb" id="pg-ft">قدم</button></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-glen">طول الجارلاند</span><span class="hint" id="bh-glen">الطول الكلي المطلوب</span></div><div class="iw"><input type="number" id="glen" value="0" min="0" step="0.5"><span class="isym" id="g-sym">م</span></div></div>
+      <div class="szblock">
+        <div class="stitle" id="bl-sizes">أحجام البالونات المطلوبة:</div>
+        <div class="szrow"><span class="badge" id="g-base-badge">8"</span><span class="qty" id="gq-base">0</span><span class="qlbl" id="bl-pbase">قطعة — أكياس</span></div>
+        <div class="bagrow">
+          <select class="bsel" id="g-brand-base"></select>
+          <select class="bsel" id="bag-base"><option value="100">100</option><option value="50">50</option></select>
+          <span class="binfo" id="bi-base"></span>
+          <input type="number" class="pinp" id="bp-base" value="0" min="0">
+          <span class="psym" id="bps-base">ج.م</span>
+        </div>
+        <div class="szrow" style="margin-top:9px"><span class="badge">5"</span><span class="qty" id="gq-5">0</span><span class="qlbl" id="bl-p5">قطعة — أكياس</span></div>
+        <div class="bagrow">
+          <select class="bsel" id="g-brand-5"></select>
+          <select class="bsel" id="bag5"><option value="100">100</option><option value="50">50</option></select>
+          <span class="binfo" id="bi-5"></span>
+          <input type="number" class="pinp" id="bp5" value="0" min="0">
+          <span class="psym" id="bps-5">ج.م</span>
+        </div>
+        <div class="szrow" style="margin-top:9px"><span class="badge">18"</span><span class="qty" id="gq-18">0</span><span class="qlbl" id="bl-p18">بالونة</span></div>
+        <div class="bagrow"><div class="ptog"><button class="pb on" id="g18-piece">بالقطعة</button><button class="pb" id="g18-bag">بالكيس</button></div></div>
+        <div class="prow" id="g18-piece-row"><span id="bl-e18">سعر القطعة:</span><input type="number" class="pinp" id="pp18" value="0" min="0"><span class="psym" id="pps-18">ج.م</span></div>
+        <div class="bagrow" id="g18-bag-row" style="display:none"><select class="bsel" id="bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="bi-18"></span><input type="number" class="pinp" id="bp18" value="0" min="0"><span class="psym" id="bps-18b">ج.م</span></div>
+        <div class="cdiv"></div>
+        <div class="stitle" id="bl-accent">بالونات تزيينية (اختياري):</div>
+        <div class="szrow"><span class="badge">24"</span><input type="number" class="pinp" style="width:54px" id="g24q" value="0" min="0"><span class="qlbl" id="bl-g24">قطعة</span><input type="number" class="pinp" id="g24p" value="0" min="0"><span class="psym" id="g24s">ج.م</span></div>
+        <div class="szrow"><span class="badge">36"</span><input type="number" class="pinp" style="width:54px" id="g36q" value="0" min="0"><span class="qlbl" id="bl-g36">قطعة</span><input type="number" class="pinp" id="g36p" value="0" min="0"><span class="psym" id="g36s">ج.م</span></div>
+      </div>
+      <div class="stitle" id="bl-addons">إضافات (Add-ons)</div>
+      <div class="addon-grid">
+        <div class="acard"><div class="aname">🫧 Bobo</div><div class="arow"><span class="albl" id="bl-q1">عدد</span><input type="number" class="ainp" id="bobo-q" value="0" min="0"></div><div class="arow"><span class="albl" id="bl-p1">سعر</span><input type="number" class="ainp" id="bobo-p" value="0" min="0"></div></div>
+        <div class="acard"><div class="aname">✨ Foil Orbz</div><div class="arow"><span class="albl" id="bl-q2">عدد</span><input type="number" class="ainp" id="orbz-q" value="0" min="0"></div><div class="arow"><span class="albl" id="bl-p2">سعر</span><input type="number" class="ainp" id="orbz-p" value="0" min="0"></div></div>
+        <div class="acard"><div class="aname" id="bl-flowers">🌸 Flowers</div><div class="arow"><span class="albl" id="bl-q3">عدد</span><input type="number" class="ainp" id="flow-q" value="0" min="0"></div><div class="arow"><span class="albl" id="bl-p3">سعر</span><input type="number" class="ainp" id="flow-p" value="0" min="0"></div></div>
+      </div>
+      <div class="bres">
+        <div class="bres-grid">
+          <div class="bri"><div class="brl" id="bl-total">البالونات</div><div class="brv pink" id="g-out-total">0</div></div>
+          <div class="bri"><div class="brl" id="bl-bags">الأكياس</div><div class="brv" id="g-out-bags">—</div></div>
+          <div class="bri"><div class="brl" id="bl-mcost">تكلفة المواد</div><div class="brv" id="g-out-mcost">—</div></div>
+        </div>
+        <div class="bres-price"><div class="brl" id="bl-sugprice">السعر المقترح</div><div class="brv" id="g-out-price">—</div></div>
+      </div>
+    </div>
+
+    <!-- ROUND -->
+    <div class="card card-accent">
+      <div class="ch"><div class="ci">⭕</div><div class="ct" id="bl-round">خلفية دائرية</div></div>
+      <div class="ibox" id="bl-round-info">المحيط = π × القطر ← متر طولي ← نفس وصفة الجارلاند</div>
+      <div class="ptog"><button class="pb on" id="pr-m">متر</button><button class="pb" id="pr-ft">قدم</button></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-rdiam">القطر</span><span class="hint" id="bh-rdiam">القياس عبر أوسع نقطة</span></div><div class="iw"><input type="number" id="rdiam" value="0" min="0" step="0.1"><span class="isym" id="r-sym">م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-rhalf">نصف دائرة؟</span></div><div class="iw"><select id="r-half" style="height:36px;padding:0 10px;border-radius:50px;border:2px solid var(--border);background:#fff;font-size:13px;font-weight:600;cursor:pointer"><option value="1" id="r-full-opt">دائرة كاملة</option><option value="0.5" id="r-half-opt">نصف دائرة</option></select></div></div>
+      <div class="ibox" id="r-lin-box">المتر الطولي المكافئ: 0 م</div>
+      <div class="szblock">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="stitle" style="margin:0" id="bl-r-prices">الأسعار (مستقلة):</div>
+          <button class="copy-btn" id="btn-r-copy">📋 نسخ من الجارلاند</button>
+        </div>
+        <div class="szrow"><span class="badge" id="r-base-badge">8"</span><span class="qty" id="rq-base">0</span><span class="qlbl">قطعة</span><select class="bsel" id="r-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="r-bi-base"></span><input type="number" class="pinp" id="r-bp-base" value="0" min="0"><span class="psym" id="r-bps-base">ج.م</span></div>
+        <div class="szrow"><span class="badge">5"</span><span class="qty" id="rq-5">0</span><span class="qlbl">قطعة</span><select class="bsel" id="r-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="r-bi-5"></span><input type="number" class="pinp" id="r-bp5" value="0" min="0"><span class="psym" id="r-bps-5">ج.م</span></div>
+        <div class="szrow"><span class="badge">18"</span><span class="qty" id="rq-18">0</span><span class="qlbl">بالونة</span></div>
+        <div class="bagrow"><div class="ptog"><button class="pb on" id="r18-piece">بالقطعة</button><button class="pb" id="r18-bag">بالكيس</button></div></div>
+        <div class="prow" id="r18-piece-row"><span>سعر القطعة:</span><input type="number" class="pinp" id="r-pp18" value="0" min="0"><span class="psym" id="r-pps18">ج.م</span></div>
+        <div class="bagrow" id="r18-bag-row" style="display:none"><select class="bsel" id="r-bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="r-bi18"></span><input type="number" class="pinp" id="r-bp18" value="0" min="0"><span class="psym" id="r-bps18b">ج.م</span></div>
+      </div>
+      <div class="bres">
+        <div class="bres-grid">
+          <div class="bri"><div class="brl" id="bl-rtotal">البالونات</div><div class="brv pink" id="r-out-total">0</div></div>
+          <div class="bri"><div class="brl" id="bl-rbags">الأكياس</div><div class="brv" id="r-out-bags">—</div></div>
+          <div class="bri"><div class="brl" id="bl-rmcost">تكلفة المواد</div><div class="brv" id="r-out-mcost">—</div></div>
+        </div>
+        <div class="bres-price"><div class="brl" id="bl-rsug">السعر المقترح</div><div class="brv" id="r-out-price">—</div></div>
+      </div>
+    </div>
+
+    <!-- RECT -->
+    <div class="card card-accent">
+      <div class="ch"><div class="ci">▭</div><div class="ct" id="bl-rect">جدار مستطيل</div></div>
+      <div class="ibox" id="bl-rect-info">المساحة ÷ 0.35م ← متر طولي ← نفس وصفة الجارلاند</div>
+      <div class="ptog"><button class="pb on" id="prect-m">متر</button><button class="pb" id="prect-ft">قدم</button></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-rw">العرض</span><span class="hint" id="bh-rw">القياس الأفقي للجدار</span></div><div class="iw"><input type="number" id="rw" value="0" min="0" step="0.1"><span class="isym" id="rect-sym">م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-rh">الارتفاع</span><span class="hint" id="bh-rh">القياس الرأسي للجدار</span></div><div class="iw"><input type="number" id="rh" value="0" min="0" step="0.1"><span class="isym" id="rect-sym2">م</span></div></div>
+      <div class="ibox" id="rect-lin-box">المتر الطولي المكافئ: 0 م</div>
+      <div class="szblock">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="stitle" style="margin:0" id="bl-rect-prices">الأسعار (مستقلة):</div>
+          <button class="copy-btn" id="btn-rect-copy">📋 نسخ من الجارلاند</button>
+        </div>
+        <div class="szrow"><span class="badge" id="rect-base-badge">8"</span><span class="qty" id="rectq-base">0</span><span class="qlbl">قطعة</span><select class="bsel" id="rect-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="rect-bi-base"></span><input type="number" class="pinp" id="rect-bp-base" value="0" min="0"><span class="psym" id="rect-bps-base">ج.م</span></div>
+        <div class="szrow"><span class="badge">5"</span><span class="qty" id="rectq-5">0</span><span class="qlbl">قطعة</span><select class="bsel" id="rect-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="rect-bi-5"></span><input type="number" class="pinp" id="rect-bp5" value="0" min="0"><span class="psym" id="rect-bps-5">ج.م</span></div>
+        <div class="szrow"><span class="badge">18"</span><span class="qty" id="rectq-18">0</span><span class="qlbl">بالونة</span></div>
+        <div class="bagrow"><div class="ptog"><button class="pb on" id="rect18-piece">بالقطعة</button><button class="pb" id="rect18-bag">بالكيس</button></div></div>
+        <div class="prow" id="rect18-piece-row"><span>سعر القطعة:</span><input type="number" class="pinp" id="rect-pp18" value="0" min="0"><span class="psym" id="rect-pps18">ج.م</span></div>
+        <div class="bagrow" id="rect18-bag-row" style="display:none"><select class="bsel" id="rect-bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="rect-bi18"></span><input type="number" class="pinp" id="rect-bp18" value="0" min="0"><span class="psym" id="rect-bps18b">ج.م</span></div>
+      </div>
+      <div class="bres">
+        <div class="bres-grid">
+          <div class="bri"><div class="brl" id="bl-recttotal">البالونات</div><div class="brv pink" id="rect-out-total">0</div></div>
+          <div class="bri"><div class="brl" id="bl-rectbags">الأكياس</div><div class="brv" id="rect-out-bags">—</div></div>
+          <div class="bri"><div class="brl" id="bl-rectmcost">تكلفة المواد</div><div class="brv" id="rect-out-mcost">—</div></div>
+        </div>
+        <div class="bres-price"><div class="brl" id="bl-rectsug">السعر المقترح</div><div class="brv" id="rect-out-price">—</div></div>
+      </div>
+    </div>
+
+    <!-- COLUMN -->
+    <div class="card card-accent">
+      <div class="ch"><div class="ci">🎊</div><div class="ct" id="bl-col">عمود بالونات</div></div>
+      <div class="ibox" id="bl-col-info">الارتفاع = متر طولي مباشرة ← نفس وصفة الجارلاند</div>
+      <div class="ptog"><button class="pb on" id="pcol-m">متر</button><button class="pb" id="pcol-ft">قدم</button></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-colh">ارتفاع العمود</span><span class="hint" id="bh-colh">الارتفاع من الأرض للقمة</span></div><div class="iw"><input type="number" id="colh" value="0" min="0" step="0.1"><span class="isym" id="col-sym">م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-colnum">عدد الأعمدة</span><span class="hint" id="bh-colnum">كم عمود في هذا العمل</span></div><div class="iw"><input type="number" id="colnum" value="1" min="1"><span class="isym" id="col-sym2">أعمدة</span></div></div>
+      <div class="szblock">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="stitle" style="margin:0" id="bl-col-prices">الأسعار (مستقلة):</div>
+          <button class="copy-btn" id="btn-col-copy">📋 نسخ من الجارلاند</button>
+        </div>
+        <div class="szrow"><span class="badge" id="col-base-badge">8"</span><span class="qty" id="colq-base">0</span><span class="qlbl">قطعة</span><select class="bsel" id="col-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="col-bi-base"></span><input type="number" class="pinp" id="col-bp-base" value="0" min="0"><span class="psym" id="col-bps-base">ج.م</span></div>
+        <div class="szrow"><span class="badge">5"</span><span class="qty" id="colq-5">0</span><span class="qlbl">قطعة</span><select class="bsel" id="col-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="col-bi-5"></span><input type="number" class="pinp" id="col-bp5" value="0" min="0"><span class="psym" id="col-bps-5">ج.م</span></div>
+        <div class="szrow"><span class="badge">18"</span><span class="qty" id="colq-18">0</span><span class="qlbl">بالونة</span></div>
+        <div class="bagrow"><div class="ptog"><button class="pb on" id="col18-piece">بالقطعة</button><button class="pb" id="col18-bag">بالكيس</button></div></div>
+        <div class="prow" id="col18-piece-row"><span>سعر القطعة:</span><input type="number" class="pinp" id="col-pp18" value="0" min="0"><span class="psym" id="col-pps18">ج.م</span></div>
+        <div class="bagrow" id="col18-bag-row" style="display:none"><select class="bsel" id="col-bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="col-bi18"></span><input type="number" class="pinp" id="col-bp18" value="0" min="0"><span class="psym" id="col-bps18b">ج.م</span></div>
+      </div>
+      <div class="bres">
+        <div class="bres-grid">
+          <div class="bri"><div class="brl" id="bl-coltotal">البالونات</div><div class="brv pink" id="col-out-total">0</div></div>
+          <div class="bri"><div class="brl" id="bl-colbags">الأكياس</div><div class="brv" id="col-out-bags">—</div></div>
+          <div class="bri"><div class="brl" id="bl-colmcost">تكلفة المواد</div><div class="brv" id="col-out-mcost">—</div></div>
+        </div>
+        <div class="bres-price"><div class="brl" id="bl-colsug">السعر المقترح</div><div class="brv" id="col-out-price">—</div></div>
+      </div>
+    </div>
+
+    <!-- HELIUM & MARKUP -->
+    <div class="card">
+      <div class="ch"><div class="ci">🎀</div><div class="ct" id="bl-sup">هيليوم ومستلزمات</div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-helium">هيليوم / غاز</span><span class="hint" id="bh-helium">تكلفة الهيليوم في هذا العمل</span></div><div class="iw"><input type="number" id="b-helium" value="0" min="0"><span class="isym" id="bs-h">ج.م</span></div></div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="bl-supplies">شريط ومستلزمات</span><span class="hint" id="bh-supplies">كل المواد المستهلكة</span></div><div class="iw"><input type="number" id="b-supplies" value="0" min="0"><span class="isym" id="bs-s">ج.م</span></div></div>
+    </div>
+    <div class="card">
+      <div class="ch"><div class="ci">💰</div><div class="ct" id="bl-markup-title">تسعير الربح</div></div>
+      <div class="markup-box">
+        <div class="markup-top">
+          <div><div class="markup-lbl" id="bl-markup-lbl">معامل السعر</div><div class="markup-hint" id="bl-markup-hint">جارلاند/خلفية/جدار: 3-4x · عمود: 2.5-3x من تكلفة المواد</div></div>
+          <div class="markup-val"><span id="markup-disp">3.0</span><span>x</span></div>
+        </div>
+        <input type="range" id="b-markup" min="15" max="60" value="30">
+        <div class="markup-scale"><span class="mscale">1.5x</span><span class="mscale">2x</span><span class="mscale">3x</span><span class="mscale">4x</span><span class="mscale">5x</span><span class="mscale">6x</span></div>
+      </div>
+      <div class="minwarn" id="b-minwarn"></div>
+      <div class="lesson n" id="b-lesson">أدخلي أسعار البالونات واضبطي المعامل.</div>
+    </div>
+    <div class="res-hdr" id="bl-results">ملخص عمل البالونات</div>
+    <div class="resgrid">
+      <div class="rc"><div class="rl" id="bl-cost">إجمالي المواد</div><div class="rv" id="b-out-cost">—</div></div>
+      <div class="rc"><div class="rl" id="bl-profit">ربحك</div><div class="rv g" id="b-out-profit">—</div></div>
+      <div class="rc big"><div class="rl" id="bl-price">السعر المقترح للعميل</div><div class="rv" id="b-out-price">—</div></div>
+      <div class="rc"><div class="rl" id="bl-dep">العربون 50%</div><div class="rv" id="b-out-dep">—</div></div>
+      <div class="rc"><div class="rl" id="bl-bal">المبلغ المتبقي</div><div class="rv" id="b-out-bal">—</div></div>
+    </div>
+    <button class="btn-pink" id="btn-transfer">➡️ نقل التكلفة إلى تبويب الفعالية</button>
+    <div class="transfer-ok" id="transfer-ok"></div>
+    <button class="btn-out" id="btn-b-reset">🔄 إعادة تعيين</button>
+    <button class="btn-out" id="btn-b-quote">🖨️ عرض سعر للعميل</button>
+    <button class="btn-out" id="btn-b-wa">💬 مشاركة عبر واتساب</button>
+    <div class="footer"><div class="ftext">Designed by <strong>Rania Alwais</strong></div></div>
+  </div>
+</div>
+<script>
+var sym="ج.م",lang="ar",level="starter",markup=3.0;
+var gStyle="slim",szG="m",szR="m",szRect="m",szCol="m";
+var g18m="piece",r18m="piece",rect18m="piece",col18m="piece";
+var WASTAGE=1.10,minProfit=0,brands=[];
+var gMat=0,rMat=0,rectMat=0,colMat=0;
+var eLast={cost:0,profit:0,price:0},bLast={total:0,profit:0,price:0};
+
+var CUR={EG:{sym:"ج.م",mk:30},SA:{sym:"ر.س",mk:35},AE:{sym:"د.إ",mk:35},KW:{sym:"د.ك",mk:40},QA:{sym:"ر.ق",mk:40},JO:{sym:"د.أ",mk:30},US:{sym:"$",mk:40},GB:{sym:"£",mk:40},FR:{sym:"EUR",mk:40},DE:{sym:"EUR",mk:40}};
+var RCP={slim:{base:"8\"",bq:24,q5:18,q18:2},lush:{base:"11\"/12\"",bq:16,q5:14,q18:2}};
+
+function g(id){return document.getElementById(id);}
+function v(id){return parseFloat(g(id).value)||0;}
+function vi(id){return parseInt(g(id).value)||0;}
+function fmt(n){return sym+" "+n.toFixed(sym==="د.ك"||sym==="د.أ"?3:2);}
+function toM(x,u){return u==="ft"?x*0.3048:x;}
+function nbags(q,b){return q>0?Math.ceil(q/b):0;}
+function aw(n){return Math.ceil(n*WASTAGE);}
+function rep(t,o){return t.replace(/\{(\w+)\}/g,function(m,k){return o[k]!==undefined?o[k]:m;});}
+function flash(id,txt){var e=g(id);if(!e)return;var old=e.textContent;e.textContent=txt;setTimeout(function(){e.textContent=old;},1500);}
+
+// ── STATE HELPERS ──────────────────────────────────────
+function setCls(id,cls){var e=g(id);if(e)e.className=cls;}
+function setTxt(id,txt){var e=g(id);if(e)e.textContent=txt;}
+function showHide(id,show){var e=g(id);if(e)e.style.display=show?"":"none";}
+
+// ── PILL TOGGLE ─────────────────────────────────────────
+function ptog(aId,bId,aOn){
+  var a=g(aId),b=g(bId);
+  if(a)a.className="pb"+(aOn?" on":"");
+  if(b)b.className="pb"+(!aOn?" on":"");
+}
+
+// ── COUNTRY ─────────────────────────────────────────────
+function setCountry(){
+  var c=g("country").value,cur=CUR[c]||CUR.EG;
+  sym=cur.sym;
+  var ids=["es-b","es-h","es-s","es-m","es-w","es-ex","es-ls","es-mr","es-sr","es-d","es-disc",
+    "bps-base","bps-5","pps-18","bps-18b","g24s","g36s","bs-h","bs-s","st-sym",
+    "r-bps-base","r-bps-5","r-pps18","r-bps18b",
+    "rect-bps-base","rect-bps-5","rect-pps18","rect-bps18b",
+    "col-bps-base","col-bps-5","col-pps18","col-bps18b"];
+  ids.forEach(function(id){var e=g(id);if(e)e.textContent=sym;});
+  markup=cur.mk/10;
+  g("b-markup").value=cur.mk;
+  g("markup-disp").textContent=markup.toFixed(1);
+  g("e-pct").value=cur.mk;
+  calcEvent();calcBSum();
+}
+
+// ── MODE / LEVEL ────────────────────────────────────────
+function setMode(m){
+  var ev=m==="event";
+  setCls("tab-event","mpill"+(ev?" on":""));
+  setCls("tab-balloons","mpill"+(!ev?" on":""));
+  setCls("page-event","page"+(ev?" show":""));
+  setCls("page-balloons","page"+(!ev?" show":""));
+}
+function setLevel(lv){
+  level=lv;
+  var s=lv==="starter";
+  setCls("lvl-s","lvl"+(s?" on":""));
+  setCls("lvl-p","lvl"+(!s?" on":""));
+  showHide("div-ls",s);showHide("div-lp",!s);showHide("div-oh",!s);
+  calcEvent();
+}
+
+// ── GARLAND STYLE ───────────────────────────────────────
+function setGStyle(st){
+  gStyle=st;
+  setCls("style-slim","style-opt"+(st==="slim"?" on":""));
+  setCls("style-lush","style-opt"+(st==="lush"?" on":""));
+  var r=RCP[st];
+  var badge=r.base;
+  ["g-base-badge","r-base-badge","rect-base-badge","col-base-badge"].forEach(function(id){setTxt(id,badge);});
+  var lm=lang==="ar"?{slim:"نحيف",lush:"ممتلئ",m:"لكل متر"}:{slim:"Slim",lush:"Lush",m:"per meter"};
+  g("garland-info").textContent=(st==="slim"?lm.slim:lm.lush)+": "+r.bq+"×"+r.base+" + "+r.q5+"×5\" + "+r.q18+"×18\" "+lm.m;
+  calcGarland();calcRound();calcRect();calcCol();
+}
+
+// ── UNIT TOGGLES ────────────────────────────────────────
+function setSzG(u){szG=u;ptog("pg-m","pg-ft",u==="m");setTxt("g-sym",u==="m"?"م":"ft");calcGarland();}
+function setSzR(u){szR=u;ptog("pr-m","pr-ft",u==="m");setTxt("r-sym",u==="m"?"م":"ft");calcRound();}
+function setSzRect(u){szRect=u;ptog("prect-m","prect-ft",u==="m");var s=u==="m"?"م":"ft";setTxt("rect-sym",s);setTxt("rect-sym2",s);calcRect();}
+function setSzCol(u){szCol=u;ptog("pcol-m","pcol-ft",u==="m");setTxt("col-sym",u==="m"?"م":"ft");calcCol();}
+
+// ── 18" TOGGLES ─────────────────────────────────────────
+function set18(prefix,m){
+  if(prefix==="g")g18m=m;
+  else if(prefix==="r")r18m=m;
+  else if(prefix==="rect")rect18m=m;
+  else col18m=m;
+  ptog(prefix+"18-piece",prefix+"18-bag",m==="piece");
+  showHide(prefix+"18-piece-row",m==="piece");
+  showHide(prefix+"18-bag-row",m==="bag");
+  if(prefix==="g")calcGarland();
+  else if(prefix==="r")calcRound();
+  else if(prefix==="rect")calcRect();
+  else calcCol();
+}
+
+// ── MARKUP ──────────────────────────────────────────────
+function syncMarkup(){
+  markup=parseFloat(g("b-markup").value)/10;
+  g("markup-disp").textContent=markup.toFixed(1);
+  calcGarland();calcRound();calcRect();calcCol();calcBSum();
+}
+
+// ── RECIPE ──────────────────────────────────────────────
+function recipe(m){
+  var r=RCP[gStyle];
+  return{base:aw(m*r.bq),q5:aw(m*r.q5),q18:aw(m*r.q18)};
+}
+
+// ── 18" COST ────────────────────────────────────────────
+function c18cost(qty,mode18,ppId,bagSzId,bpId,biId){
+  if(mode18==="piece")return qty*v(ppId);
+  var bs=vi(bagSzId)||5,bags=nbags(qty,bs);
+  var e=g(biId);if(e)e.textContent=bags>0?bags+(lang==="ar"?" كيس":" bags"):"";
+  return bags*v(bpId);
+}
+
+// ── BAGS COST ────────────────────────────────────────────
+function bagsCost(rec,bagBaseId,bpBaseId,biBaseId,bag5Id,bp5Id,bi5Id){
+  var bBase=nbags(rec.base,vi(bagBaseId)||100);
+  var b5=nbags(rec.q5,vi(bag5Id)||100);
+  var eBase=g(biBaseId);if(eBase)eBase.textContent=bBase>0?bBase+(lang==="ar"?" كيس":" bags"):"";
+  var e5=g(bi5Id);if(e5)e5.textContent=b5>0?b5+(lang==="ar"?" كيس":" bags"):"";
+  return{cBase:bBase*v(bpBaseId),c5:b5*v(bp5Id),bags:bBase+b5};
+}
+
+// ── GARLAND ─────────────────────────────────────────────
+function calcGarland(){
+  var m=toM(v("glen"),szG),rec=recipe(m);
+  setTxt("gq-base",rec.base);setTxt("gq-5",rec.q5);setTxt("gq-18",rec.q18);
+  var b=bagsCost(rec,"bag-base","bp-base","bi-base","bag5","bp5","bi-5");
+  var c18=c18cost(rec.q18,g18m,"pp18","bag18","bp18","bi-18");
+  var cAdd=v("bobo-q")*v("bobo-p")+v("orbz-q")*v("orbz-p")+v("flow-q")*v("flow-p");
+  var c24=vi("g24q")*v("g24p"),c36=vi("g36q")*v("g36p");
+  gMat=b.cBase+b.c5+c18+c24+c36+cAdd;
+  var tot=rec.base+rec.q5+rec.q18+vi("g24q")+vi("g36q")+vi("bobo-q")+vi("orbz-q")+vi("flow-q");
+  setTxt("g-out-total",tot);
+  setTxt("g-out-bags",b.bags>0?b.bags:"—");
+  setTxt("g-out-mcost",gMat>0?fmt(gMat):"—");
+  setTxt("g-out-price",gMat>0?fmt(gMat*markup):"—");
+  calcBSum();
+}
+
+// ── ROUND ───────────────────────────────────────────────
+function calcRound(){
+  var d=toM(v("rdiam"),szR),half=parseFloat(g("r-half").value)||1;
+  var circ=Math.PI*d*half;
+  g("r-lin-box").textContent=(lang==="ar"?"المتر الطولي المكافئ:":"Linear meters:")+": "+circ.toFixed(2)+" m";
+  var rec=recipe(circ);
+  setTxt("rq-base",rec.base);setTxt("rq-5",rec.q5);setTxt("rq-18",rec.q18);
+  var b=bagsCost(rec,"r-bag-base","r-bp-base","r-bi-base","r-bag5","r-bp5","r-bi-5");
+  var c18=c18cost(rec.q18,r18m,"r-pp18","r-bag18","r-bp18","r-bi18");
+  rMat=b.cBase+b.c5+c18;
+  setTxt("r-out-total",rec.base+rec.q5+rec.q18);
+  setTxt("r-out-bags",b.bags>0?b.bags:"—");
+  setTxt("r-out-mcost",rMat>0?fmt(rMat):"—");
+  setTxt("r-out-price",rMat>0?fmt(rMat*markup):"—");
+  calcBSum();
+}
+
+// ── RECT ────────────────────────────────────────────────
+function calcRect(){
+  var w=toM(v("rw"),szRect),h=toM(v("rh"),szRect);
+  var linM=(w*h)/0.35;
+  g("rect-lin-box").textContent=(lang==="ar"?"المتر الطولي المكافئ:":"Linear meters:")+": "+linM.toFixed(2)+" m";
+  var rec=recipe(linM);
+  setTxt("rectq-base",rec.base);setTxt("rectq-5",rec.q5);setTxt("rectq-18",rec.q18);
+  var b=bagsCost(rec,"rect-bag-base","rect-bp-base","rect-bi-base","rect-bag5","rect-bp5","rect-bi-5");
+  var c18=c18cost(rec.q18,rect18m,"rect-pp18","rect-bag18","rect-bp18","rect-bi18");
+  rectMat=b.cBase+b.c5+c18;
+  setTxt("rect-out-total",rec.base+rec.q5+rec.q18);
+  setTxt("rect-out-bags",b.bags>0?b.bags:"—");
+  setTxt("rect-out-mcost",rectMat>0?fmt(rectMat):"—");
+  setTxt("rect-out-price",rectMat>0?fmt(rectMat*markup):"—");
+  calcBSum();
+}
+
+// ── COLUMN ──────────────────────────────────────────────
+function calcCol(){
+  var h=toM(v("colh"),szCol),num=vi("colnum")||1;
+  var linM=h*num;
+  var rec=recipe(linM);
+  setTxt("colq-base",rec.base);setTxt("colq-5",rec.q5);setTxt("colq-18",rec.q18);
+  var b=bagsCost(rec,"col-bag-base","col-bp-base","col-bi-base","col-bag5","col-bp5","col-bi-5");
+  var c18=c18cost(rec.q18,col18m,"col-pp18","col-bag18","col-bp18","col-bi18");
+  colMat=b.cBase+b.c5+c18;
+  setTxt("col-out-total",rec.base+rec.q5+rec.q18);
+  setTxt("col-out-bags",b.bags>0?b.bags:"—");
+  setTxt("col-out-mcost",colMat>0?fmt(colMat):"—");
+  setTxt("col-out-price",colMat>0?fmt(colMat*markup):"—");
+  calcBSum();
+}
+
+// ── BALLOON SUMMARY ─────────────────────────────────────
+function calcBSum(){
+  var tot=gMat+rMat+rectMat+colMat+v("b-helium")+v("b-supplies");
+  var price=tot*markup,profit=price-tot;
+  bLast={total:tot,profit:profit,price:price};
+  var empty=tot===0;
+  setTxt("b-out-cost",empty?"—":fmt(tot));
+  setTxt("b-out-profit",empty?"—":fmt(profit));
+  setTxt("b-out-price",empty?"—":fmt(price));
+  setTxt("b-out-dep",empty?"—":fmt(price*.5));
+  setTxt("b-out-bal",empty?"—":fmt(price*.5));
+  var lesson=g("b-lesson"),warn=g("b-minwarn");
+  if(empty){lesson.className="lesson n";lesson.textContent=lang==="ar"?"أدخلي أسعار البالونات واضبطي المعامل.":"Enter balloon prices and set multiplier.";warn.className="minwarn";return;}
+  var apc=Math.round((profit/price)*100);
+  lesson.className="lesson "+(apc<20?"r":apc<30?"o":"g");
+  lesson.textContent=rep(lang==="ar"?"تكلفة موادك {c} × {m} = سعر مقترح {px}. ربحك: {pr}.":"Material cost {c} × {m} = suggested price {px}. Profit: {pr}.",{c:fmt(tot),m:markup.toFixed(1),px:fmt(price),pr:fmt(profit)});
+  if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=(lang==="ar"?"⚠️ الربح الحالي (":"⚠️ Current profit (")+fmt(profit)+(lang==="ar"?") أقل من حدك الأدنى (":" is below your minimum (")+fmt(minProfit)+")";}
+  else warn.className="minwarn";
+}
+
+// ── EVENT CALC ──────────────────────────────────────────
+function calcEvent(){
+  var mat=v("e-balloons")+v("e-helium")+v("e-supplies")+v("e-metal")+v("e-wood")+v("e-extras");
+  var labor=0;
+  if(level==="starter"){labor=v("e-ls");}
+  else{
+    var mk=v("e-mh")*v("e-mr"),sk=v("e-sh")*v("e-sr");
+    labor=mk+sk;
+    setTxt("eq-mk","= "+fmt(mk));setTxt("eq-sk","= "+fmt(sk));
+    setTxt("ltotal-val",fmt(labor));
+  }
+  var base=mat+labor+v("e-delivery");
+  var oh=level==="starter"?0:base*(v("e-oh")/100);
+  var cost=base+oh,disc=v("e-disc");
+  var pct=v("e-pct")||30,profit=cost*(pct/100),price=cost+profit-disc;
+  eLast={cost:cost,profit:profit,price:price};
+  var empty=cost===0;
+  setTxt("e-out-cost",empty?"—":fmt(cost));
+  setTxt("e-out-profit",empty?"—":fmt(profit));
+  setTxt("e-out-price",empty?"—":fmt(price));
+  setTxt("e-out-dep",empty?"—":fmt(price*.5));
+  setTxt("e-out-bal",empty?"—":fmt(price*.5));
+  var lesson=g("e-lesson"),warn=g("e-minwarn");
+  if(empty){lesson.className="lesson n";lesson.textContent=lang==="ar"?"أدخلي تكاليفك لرؤية الحساب الكامل.":"Enter your costs to see the full calculation.";warn.className="minwarn";autoSave();return;}
+  var apc=price>0?Math.round((price-cost)/price*100):0;
+  var cls,txt;
+  if(apc<15){cls="r";txt=lang==="ar"?"⚠️ هامش "+apc+"% فقط — ارفعي نسبة ربحك.":"⚠️ Margin only "+apc+"% — raise your profit %.";}
+  else if(apc<25){cls="o";txt=lang==="ar"?"تكلفتك "+fmt(cost)+"، ربحك "+fmt(profit)+"، سعرك "+fmt(price)+". يمكن تحسينه.":"Cost "+fmt(cost)+", profit "+fmt(profit)+", price "+fmt(price)+". Can improve.";}
+  else if(apc<40){cls="g";txt=lang==="ar"?"تكلفتك "+fmt(cost)+"، ربحك "+fmt(profit)+"، سعر العميل "+fmt(price)+".":"Cost "+fmt(cost)+", profit "+fmt(profit)+", charge "+fmt(price)+".";}
+  else{cls="g";txt=lang==="ar"?"ممتاز! تكلفتك "+fmt(cost)+"، ربحك "+fmt(profit)+"، سعر "+fmt(price)+".":"Excellent! Cost "+fmt(cost)+", profit "+fmt(profit)+", charge "+fmt(price)+".";}
+  lesson.className="lesson "+cls;lesson.textContent=txt;
+  if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=(lang==="ar"?"⚠️ الربح (":"⚠️ Profit (")+fmt(profit)+(lang==="ar"?") أقل من حدك الأدنى (":" below minimum (")+fmt(minProfit)+")";}
+  else warn.className="minwarn";
+  autoSave();
+}
+
+// ── TRANSFER ────────────────────────────────────────────
+function doTransfer(){
+  var tot=gMat+rMat+rectMat+colMat;
+  g("e-balloons").value=tot.toFixed(2);
+  calcEvent();
+  var ok=g("transfer-ok");
+  ok.textContent=lang==="ar"?"✅ تم النقل! أضيفي الآن العمالة والتوصيل.":"✅ Transferred! Now add labor and delivery.";
+  ok.className="transfer-ok on";
+  setTimeout(function(){ok.className="transfer-ok";},4000);
+  setMode("event");
+}
+
+// ── COPY FROM GARLAND ────────────────────────────────────
+function copyFromGarland(prefix){
+  var pairs=[["bag-base","bag-base"],["bp-base","bp-base"],["bag5","bag5"],["bp5","bp5"],["pp18","pp18"],["bp18","bp18"],["bag18","bag18"]];
+  pairs.forEach(function(p){
+    var src=g(p[0]),dst=g(prefix+"-"+p[1]);
+    if(src&&dst)dst.value=src.value;
+  });
+  var mode=g18m;
+  if(prefix==="r")r18m=mode;
+  else if(prefix==="rect")rect18m=mode;
+  else col18m=mode;
+  set18(prefix,mode);
+  flash("btn-"+prefix+"-copy","✅");
+}
+
+// ── RESET ────────────────────────────────────────────────
+function resetEvent(){
+  ["e-balloons","e-helium","e-supplies","e-metal","e-wood","e-extras","e-ls","e-mh","e-mr","e-sh","e-sr","e-delivery","e-oh","e-disc"].forEach(function(id){var e=g(id);if(e)e.value=0;});
+  g("e-pct").value=30;calcEvent();
+}
+function resetBalloons(){
+  ["glen","bp-base","bp5","pp18","bp18","g24q","g24p","g36q","g36p","bobo-q","bobo-p","orbz-q","orbz-p","flow-q","flow-p","rdiam","rw","rh","colh","b-helium","b-supplies","r-bp-base","r-bp5","r-pp18","r-bp18","rect-bp-base","rect-bp5","rect-pp18","rect-bp18","col-bp-base","col-bp5","col-pp18","col-bp18"].forEach(function(id){var e=g(id);if(e)e.value=0;});
+  g("colnum").value=1;g("b-markup").value=30;markup=3.0;g("markup-disp").textContent="3.0";
+  gMat=0;rMat=0;rectMat=0;colMat=0;
+  calcGarland();calcRound();calcRect();calcCol();
+}
+
+// ── QUOTE ─────────────────────────────────────────────────
+function openQ(src){
+  g("q-date").value=new Date().toISOString().split("T")[0];
+  var price=src==="event"?eLast.price:bLast.price;
+  var ar=lang==="ar",lines="";
+  function ql(lbl,val){if(val>0)lines+='<div class="qline"><span>'+lbl+"</span><span>"+fmt(val)+"</span></div>";}
+  if(src==="event"){
+    ql("🎈 "+(ar?"البالونات":"Balloons"),v("e-balloons"));
+    ql("✨ "+(ar?"مواد ومستلزمات ديكورية":"Decor & Supplies"),v("e-helium")+v("e-supplies")+v("e-extras"));
+    ql("🪵 "+(ar?"إيجار الديكورات":"Rent Decorations"),v("e-metal")+v("e-wood"));
+    ql("🚗 "+(ar?"التوصيل":"Delivery"),v("e-delivery"));
+    var disc=v("e-disc");
+    if(disc>0)lines+='<div class="qline"><span>🏷️ '+(ar?"خصم":"Discount")+'</span><span>- '+fmt(disc)+"</span></div>";
+  } else {
+    if(gMat>0)ql("🌿 "+(ar?"جارلاند":"Garland"),gMat*markup);
+    if(rMat>0)ql("⭕ "+(ar?"خلفية دائرية":"Round Backdrop"),rMat*markup);
+    if(rectMat>0)ql("▭ "+(ar?"جدار مستطيل":"Rect. Wall"),rectMat*markup);
+    if(colMat>0)ql("🎊 "+(ar?"أعمدة":"Columns"),colMat*markup);
+    ql("💨 "+(ar?"هيليوم":"Helium"),v("b-helium"));
+    ql("🎀 "+(ar?"مستلزمات":"Supplies"),v("b-supplies"));
+  }
+  g("q-lines").innerHTML=lines||'<div style="font-size:13px;color:var(--t3)">—</div>';
+  g("q-total-val").textContent=price>0?fmt(price):"—";
+  g("q-dep-val").textContent=price>0?fmt(price*.5):"—";
+  g("q-bal-val").textContent=price>0?fmt(price*.5):"—";
+  var notes=g("q-notes").value;
+  g("q-notes-disp").textContent=notes?"📝 "+notes:"";
+  // Apply translations to quote modal labels
+  var t=TR[lang]||TR.en;
+  var qkeys=["ql-title","ql-biz","ql-date","ql-client","ql-event","ql-notes","ql-breakdown","ql-total","ql-dep","ql-bal","ql-close","ql-print"];
+  qkeys.forEach(function(k){var e=g(k);if(e&&t[k])e.textContent=t[k];});
+  g("m-quote").className="modal on";
+}
+function closeQ(){g("m-quote").className="modal";}
+function printQ(){
+  g("ph-biz").textContent=g("q-biz").value||"—";
+  g("ph-date").textContent=g("q-date").value||"";
+  g("print-hdr").style.display="block";
+  saveToHistory();
+  window.print();
+  setTimeout(function(){g("print-hdr").style.display="none";},1200);
+}
+
+// ── WHATSAPP ─────────────────────────────────────────────
+function shareWA(src){
+  var price=src==="event"?eLast.price:bLast.price;
+  var WA_MSGS={
+    ar:{
+      noPrice:"أدخلي التكاليف أولاً",
+      title:"🎀 عرض السعر",
+      client:"👤 العميل: ",
+      event:"🎉 الفعالية: ",
+      total:"💰 السعر الإجمالي: ",
+      deposit:"📌 العربون 50%: ",
+      balance:"📌 المبلغ المتبقي: "
+    },
+    en:{
+      noPrice:"Enter costs first",
+      title:"🎀 Price Quote",
+      client:"👤 Client: ",
+      event:"🎉 Event: ",
+      total:"💰 Total: ",
+      deposit:"📌 Deposit 50%: ",
+      balance:"📌 Balance: "
+    },
+    fr:{
+      noPrice:"Entrez les coûts d'abord",
+      title:"🎀 Devis",
+      client:"👤 Client: ",
+      event:"🎉 Événement: ",
+      total:"💰 Prix total: ",
+      deposit:"📌 Acompte 50%: ",
+      balance:"📌 Solde restant: "
+    },
+    de:{
+      noPrice:"Kosten zuerst eingeben",
+      title:"🎀 Angebot",
+      client:"👤 Kunde: ",
+      event:"🎉 Veranstaltung: ",
+      total:"💰 Gesamtpreis: ",
+      deposit:"📌 Anzahlung 50%: ",
+      balance:"📌 Restbetrag: "
+    }
+  };
+  var m=WA_MSGS[lang]||WA_MSGS.en;
+  if(price<=0){alert(m.noPrice);return;}
+  var nl="\n";
+  var msg=m.title+nl;
+  msg+=m.client+(g("q-client").value||"—")+nl;
+  msg+=m.event+(g("q-event").value||"—")+nl;
+  msg+="━━━━━━━━━━━━"+nl;
+  msg+=m.total+fmt(price)+nl;
+  msg+=m.deposit+fmt(price*.5)+nl;
+  msg+=m.balance+fmt(price*.5)+nl;
+  msg+="━━━━━━━━━━━━"+nl+"✨ Designed by Rania Alwais";
+  window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank");
+}
+
+// ── SETTINGS ─────────────────────────────────────────────
+function openSettings(){
+  g("wastage-pct").value=Math.round((WASTAGE-1)*100);
+  g("min-profit").value=minProfit;
+  renderBrands();renderHistory();
+  g("m-settings").className="modal on";
+}
+function closeSettings(){g("m-settings").className="modal";}
+function saveSettings(){
+  WASTAGE=1+(parseFloat(g("wastage-pct").value)||0)/100;
+  minProfit=parseFloat(g("min-profit").value)||0;
+  try{localStorage.setItem("rania_wastage",Math.round((WASTAGE-1)*100));localStorage.setItem("rania_minprofit",minProfit);}catch(e){}
+  closeSettings();
+  calcGarland();calcRound();calcRect();calcCol();calcEvent();
+}
+
+// ── BRANDS ───────────────────────────────────────────────
+function loadBrands(){
+  try{
+    var raw=localStorage.getItem("rania_brands");brands=raw?JSON.parse(raw):[];
+    var w=localStorage.getItem("rania_wastage");if(w)WASTAGE=1+parseFloat(w)/100;
+    var mp=localStorage.getItem("rania_minprofit");if(mp)minProfit=parseFloat(mp)||0;
+  }catch(e){brands=[];}
+}
+function saveBrands(){try{localStorage.setItem("rania_brands",JSON.stringify(brands));}catch(e){}}
+function addBrand(){brands.push({id:Date.now(),name:"",price:0,size:100});renderBrands();saveBrands();updateBrandDropdowns();}
+function delBrand(id){brands=brands.filter(function(b){return b.id!==id;});renderBrands();saveBrands();updateBrandDropdowns();}
+function updateBrandField(id,field,val){
+  var b=brands.find(function(x){return x.id===id;});
+  if(!b)return;
+  if(field==="name")b.name=val;
+  else if(field==="price")b.price=parseFloat(val)||0;
+  else b.size=parseInt(val)||100;
+  saveBrands();updateBrandDropdowns();
+}
+function renderBrands(){
+  var c=g("brands-list");c.innerHTML="";
+  brands.forEach(function(b){
+    var row=document.createElement("div");row.className="brand-row";
+    var ni=document.createElement("input");ni.type="text";ni.placeholder=lang==="ar"?"اسم البراند":"Brand";ni.value=b.name||"";ni.style.flex="1";
+    ni.onchange=function(){updateBrandField(b.id,"name",this.value);};
+    var pi=document.createElement("input");pi.type="number";pi.placeholder=lang==="ar"?"سعر":"Price";pi.value=b.price||0;pi.style.width="62px";
+    pi.onchange=function(){updateBrandField(b.id,"price",this.value);};
+    var si=document.createElement("select");si.style.cssText="width:60px;padding:4px;border:1.5px solid var(--border);border-radius:8px;";
+    ["100","50"].forEach(function(sz){var o=document.createElement("option");o.value=sz;o.textContent=sz;if(b.size==sz)o.selected=true;si.appendChild(o);});
+    si.onchange=function(){updateBrandField(b.id,"size",this.value);};
+    var db=document.createElement("button");db.className="brand-del";db.textContent="✕";db.onclick=function(){delBrand(b.id);};
+    row.appendChild(ni);row.appendChild(pi);row.appendChild(si);row.appendChild(db);
+    c.appendChild(row);
+  });
+}
+function updateBrandDropdowns(){
+  ["g-brand-base","g-brand-5"].forEach(function(selId,idx){
+    var sel=g(selId);if(!sel)return;
+    var cur=sel.value;
+    sel.innerHTML='<option value="">'+(lang==="ar"?"— براند —":"— Brand —")+"</option>";
+    brands.forEach(function(b){
+      if(!b.name)return;
+      var opt=document.createElement("option");opt.value=b.id;
+      opt.textContent=b.name+" ("+b.size+" / "+b.price+" "+sym+")";
+      sel.appendChild(opt);
+    });
+    sel.value=cur;
+  });
+}
+function applyBrand(sel,bagId,priceId){
+  if(!sel.value)return;
+  var b=brands.find(function(x){return x.id==sel.value;});
+  if(!b)return;
+  var bagEl=g(bagId);if(bagEl)bagEl.value=b.size;
+  var pEl=g(priceId);if(pEl)pEl.value=b.price;
+  calcGarland();
+}
+
+// ── HISTORY ──────────────────────────────────────────────
+function saveToHistory(){
+  if(eLast.price<=0)return;
+  try{
+    var raw=localStorage.getItem("rania_history"),hist=raw?JSON.parse(raw):[];
+    hist.unshift({date:new Date().toLocaleDateString(),client:g("q-client").value||"—",event:g("q-event").value||"—",price:eLast.price,sym:sym});
+    if(hist.length>5)hist=hist.slice(0,5);
+    localStorage.setItem("rania_history",JSON.stringify(hist));
+  }catch(e){}
+}
+function renderHistory(){
+  var c=g("history-list");if(!c)return;
+  try{
+    var raw=localStorage.getItem("rania_history");
+    if(!raw){c.innerHTML='<div style="font-size:12px;color:var(--t3);padding:8px;text-align:center">'+(lang==="ar"?"لا يوجد سجل بعد":"No history yet")+"</div>";return;}
+    var hist=JSON.parse(raw);c.innerHTML="";
+    hist.forEach(function(h,i){
+      var row=document.createElement("div");
+      row.style.cssText="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:"+(i%2===0?"var(--pl)":"#fff")+";border-radius:8px;margin-bottom:4px;";
+      var left=document.createElement("div");
+      left.innerHTML='<div style="font-size:13px;font-weight:700;color:var(--t2)">'+h.client+" — "+h.event+'</div><div style="font-size:11px;color:var(--t3)">'+h.date+"</div>";
+      var right=document.createElement("div");
+      right.style.cssText="font-size:14px;font-weight:700;color:var(--pink)";
+      right.textContent=(h.sym||sym)+" "+Math.round(h.price);
+      row.appendChild(left);row.appendChild(right);c.appendChild(row);
+    });
+  }catch(e){c.innerHTML="";}
+}
+
+// ── AUTO-SAVE ─────────────────────────────────────────────
+function autoSave(){
+  try{
+    var data={};
+    document.querySelectorAll("input[type=number],select").forEach(function(e){if(e.id)data[e.id]=e.value;});
+    data._gs=gStyle;data._g18=g18m;data._r18=r18m;data._rect18=rect18m;data._col18=col18m;data._level=level;data._mu=markup;
+    localStorage.setItem("rania_session",JSON.stringify(data));
+  }catch(e){}
+}
+function loadSession(){
+  try{
+    var raw=localStorage.getItem("rania_session");if(!raw)return;
+    var data=JSON.parse(raw);
+    Object.keys(data).forEach(function(k){if(k.startsWith("_"))return;var e=g(k);if(e)e.value=data[k];});
+    if(data._gs)setGStyle(data._gs);
+    if(data._g18)set18("g",data._g18);if(data._r18)set18("r",data._r18);if(data._rect18)set18("rect",data._rect18);if(data._col18)set18("col",data._col18);
+    if(data._level)setLevel(data._level);
+    if(data._mu){markup=parseFloat(data._mu);g("b-markup").value=Math.round(markup*10);g("markup-disp").textContent=markup.toFixed(1);}
+    calcGarland();calcRound();calcRect();calcCol();calcEvent();
+  }catch(e){}
+}
+
+// ── LANG ──────────────────────────────────────────────────
+
+// ── TRANSLATIONS ──────────────────────────────────────
+var TR = {
+ar:{dir:"rtl",
+ "tab-event":"🎉 الفعالية الكاملة","tab-balloons":"🎈 البالونات فقط",
+ "lvl-s":"⭐ مبتدئ","lvl-p":"🌟 محترف",
+ "el-s1":"المواد","el-note":"💡 احسبي تكلفة البالونات في تبويب البالونات ثم اضغطي نقل",
+ "el-balloons":"تكلفة البالونات","eh-balloons":"من تبويب البالونات أو أدخليها يدوياً",
+ "el-helium":"هيليوم / غاز","eh-helium":"تكلفة الهيليوم في الفعالية",
+ "el-supplies":"شريط ومستلزمات","eh-supplies":"شريط، لاصق، خطافات، خيط",
+ "el-metal":"إيجار ديكورات معدنية","eh-metal":"أقواس، حوامل، إطارات معدنية",
+ "el-wood":"إيجار ديكورات خشبية","eh-wood":"خلفيات وحوامل وستاندات خشبية",
+ "el-extras":"ليزر وطباعة وإضافات","eh-extras":"أحرف ليزر، أكريليك، طباعة مخصصة",
+ "el-s2":"العمالة والوقت","el-ls":"تكلفة عمالتك الإجمالية","eh-ls":"مجموع ما تدفعيه لنفسك",
+ "el-mh":"🎈 تصنيع البالونات","el-hrs":"ساعة","el-hrs2":"ساعة","el-sh":"🔧 تركيب في المكان",
+ "el-ltotal":"إجمالي العمالة",
+ "el-delivery":"التوصيل","eh-delivery":"تكلفة النقل إلى المكان والعودة",
+ "el-oh":"مصاريف عامة %","eh-oh":"هاتف، صيانة، بنزين — عادةً 5-10%",
+ "el-disc":"خصم للعميل","eh-disc":"فقط إذا أعطيتِ سعراً خاصاً",
+ "el-s3":"ربحك","el-pct":"نسبة الربح %","eh-pct":"تُضاف فوق التكاليف — الموصى به 25-40%",
+ "el-results":"ملخص عرض السعر","el-cost":"إجمالي التكلفة","el-profit":"ربحك",
+ "el-price":"السعر النهائي للعميل","el-dep":"العربون 50%","el-bal":"المبلغ المتبقي",
+ "btn-e-reset":"🔄 إعادة تعيين","btn-e-quote":"🖨️ عرض سعر للعميل","btn-e-wa":"💬 مشاركة عبر واتساب",
+ "bl-garland":"جارلاند عضوي","sst":"نحيف","sss":"أساس 8 إنش","slt":"ممتلئ","sls":"أساس 11/12 إنش",
+ "pg-m":"متر","pg-ft":"قدم","bl-glen":"طول الجارلاند","bh-glen":"الطول الكلي المطلوب",
+ "bl-sizes":"أحجام البالونات المطلوبة:","bl-pbase":"قطعة — أكياس","bl-p5":"قطعة — أكياس","bl-p18":"بالونة",
+ "g18-piece":"بالقطعة","g18-bag":"بالكيس","bl-e18":"سعر القطعة:",
+ "bl-accent":"بالونات تزيينية (اختياري):","bl-g24":"قطعة","bl-g36":"قطعة",
+ "bl-addons":"إضافات (Add-ons)","bl-q1":"عدد","bl-p1":"سعر","bl-q2":"عدد","bl-p2":"سعر","bl-q3":"عدد","bl-p3":"سعر",
+ "bl-flowers":"🌸 Flowers",
+ "bl-total":"البالونات","bl-bags":"الأكياس","bl-mcost":"تكلفة المواد","bl-sugprice":"السعر المقترح",
+ "bl-round":"خلفية دائرية","bl-round-info":"المحيط = π × القطر ← متر طولي ← نفس وصفة الجارلاند",
+ "pr-m":"متر","pr-ft":"قدم","bl-rdiam":"القطر","bh-rdiam":"القياس عبر أوسع نقطة",
+ "bl-rhalf":"نصف دائرة؟","r-full-opt":"دائرة كاملة","r-half-opt":"نصف دائرة",
+ "bl-r-prices":"الأسعار (مستقلة):","btn-r-copy":"📋 نسخ من الجارلاند",
+ "r18-piece":"بالقطعة","r18-bag":"بالكيس",
+ "bl-rtotal":"البالونات","bl-rbags":"الأكياس","bl-rmcost":"تكلفة المواد","bl-rsug":"السعر المقترح",
+ "bl-rect":"جدار مستطيل","bl-rect-info":"المساحة ÷ 0.35م ← متر طولي ← نفس وصفة الجارلاند",
+ "prect-m":"متر","prect-ft":"قدم","bl-rw":"العرض","bh-rw":"القياس الأفقي للجدار",
+ "bl-rh":"الارتفاع","bh-rh":"القياس الرأسي للجدار",
+ "bl-rect-prices":"الأسعار (مستقلة):","btn-rect-copy":"📋 نسخ من الجارلاند",
+ "rect18-piece":"بالقطعة","rect18-bag":"بالكيس",
+ "bl-recttotal":"البالونات","bl-rectbags":"الأكياس","bl-rectmcost":"تكلفة المواد","bl-rectsug":"السعر المقترح",
+ "bl-col":"عمود بالونات","bl-col-info":"الارتفاع = متر طولي مباشرة ← نفس وصفة الجارلاند",
+ "pcol-m":"متر","pcol-ft":"قدم","bl-colh":"ارتفاع العمود","bh-colh":"الارتفاع من الأرض للقمة",
+ "bl-colnum":"عدد الأعمدة","bh-colnum":"كم عمود في هذا العمل","col-sym2":"أعمدة",
+ "bl-col-prices":"الأسعار (مستقلة):","btn-col-copy":"📋 نسخ من الجارلاند",
+ "col18-piece":"بالقطعة","col18-bag":"بالكيس",
+ "bl-coltotal":"البالونات","bl-colbags":"الأكياس","bl-colmcost":"تكلفة المواد","bl-colsug":"السعر المقترح",
+ "bl-sup":"هيليوم ومستلزمات","bl-helium":"هيليوم / غاز","bh-helium":"تكلفة الهيليوم في هذا العمل",
+ "bl-supplies":"شريط ومستلزمات","bh-supplies":"كل المواد المستهلكة",
+ "bl-markup-title":"تسعير الربح","bl-markup-lbl":"معامل السعر",
+ "bl-markup-hint":"جارلاند/خلفية/جدار: 3-4x · عمود: 2.5-3x من تكلفة المواد",
+ "bl-results":"ملخص عمل البالونات","bl-cost":"إجمالي المواد","bl-profit":"ربحك",
+ "bl-price":"السعر المقترح للعميل","bl-dep":"العربون 50%","bl-bal":"المبلغ المتبقي",
+ "btn-transfer":"➡️ نقل التكلفة إلى تبويب الفعالية",
+ "btn-b-reset":"🔄 إعادة تعيين","btn-b-quote":"🖨️ عرض سعر للعميل","btn-b-wa":"💬 مشاركة عبر واتساب",
+ "st-title":"الإعدادات","st-wlbl":"نسبة الهالك %","st-whint":"تُضاف تلقائياً على كل كمية بالونات",
+ "st-mplbl":"الحد الأدنى للربح","st-mphint":"تنبيه فقط — بدون رفع السعر",
+ "st-blbl":"البراندات المحفوظة","st-bhint":"اسم البراند + سعر الكيس + حجمه",
+ "btn-add-brand":"+ إضافة براند","btn-st-save":"حفظ الإعدادات",
+ "st-hlbl":"آخر 5 فعاليات",
+ "ql-title":"عرض السعر","ql-biz":"اسم النشاط","ql-date":"التاريخ",
+ "ql-client":"اسم العميل","ql-event":"نوع الفعالية","ql-notes":"ملاحظات",
+ "ql-breakdown":"تفصيل الخدمات","ql-total":"السعر الإجمالي",
+ "ql-dep":"العربون 50%","ql-bal":"المبلغ المتبقي","ql-close":"إغلاق","ql-print":"طباعة"
+},
+en:{dir:"ltr",
+ "tab-event":"🎉 Full Event","tab-balloons":"🎈 Balloons Only",
+ "lvl-s":"⭐ Starter","lvl-p":"🌟 Professional",
+ "el-s1":"Materials","el-note":"💡 Calculate balloon cost in Balloons tab, then tap Transfer.",
+ "el-balloons":"Balloon cost","eh-balloons":"From Balloons tab or enter manually",
+ "el-helium":"Helium / gas","eh-helium":"Cost of helium for this event",
+ "el-supplies":"Ribbon & supplies","eh-supplies":"Ribbon, tape, hooks, fishing line",
+ "el-metal":"Metal props rental","eh-metal":"Metal arches, stands, frames",
+ "el-wood":"Wood props rental","eh-wood":"Wooden backdrops, easels, stands",
+ "el-extras":"Laser, prints & extras","eh-extras":"Laser letters, acrylic, custom prints",
+ "el-s2":"Labor & Time","el-ls":"Your total labor cost","eh-ls":"Total you pay yourself",
+ "el-mh":"🎈 Making balloons","el-hrs":"hrs","el-hrs2":"hrs","el-sh":"🔧 Setup at venue",
+ "el-ltotal":"Total labor",
+ "el-delivery":"Delivery","eh-delivery":"Transport cost to venue and back",
+ "el-oh":"Overhead %","eh-oh":"Phone, maintenance, fuel — usually 5-10%",
+ "el-disc":"Discount","eh-disc":"Only if giving a special price",
+ "el-s3":"Your Profit","el-pct":"Profit margin %","eh-pct":"Added ON TOP of costs. Recommended 25-40%",
+ "el-results":"QUOTE SUMMARY","el-cost":"Total Cost","el-profit":"Your Profit",
+ "el-price":"Price to Charge Client","el-dep":"Deposit 50%","el-bal":"Balance Due",
+ "btn-e-reset":"🔄 Reset","btn-e-quote":"🖨️ Client Quote","btn-e-wa":"💬 Share via WhatsApp",
+ "bl-garland":"Organic Balloon Garland","sst":"Slim","sss":"8\" base","slt":"Lush","sls":"11/12\" base",
+ "pg-m":"Meters","pg-ft":"Feet","bl-glen":"Garland length","bh-glen":"Total length needed",
+ "bl-sizes":"Balloon sizes needed:","bl-pbase":"pcs — bags","bl-p5":"pcs — bags","bl-p18":"balloons",
+ "g18-piece":"By piece","g18-bag":"By bag","bl-e18":"Price each:",
+ "bl-accent":"Accent balloons (optional):","bl-g24":"pcs","bl-g36":"pcs",
+ "bl-addons":"Add-ons","bl-q1":"Qty","bl-p1":"Price","bl-q2":"Qty","bl-p2":"Price","bl-q3":"Qty","bl-p3":"Price",
+ "bl-flowers":"🌸 Flowers",
+ "bl-total":"Balloons","bl-bags":"Bags","bl-mcost":"Material Cost","bl-sugprice":"Suggested Price",
+ "bl-round":"Round Backdrop","bl-round-info":"Circumference = π × diameter → linear meters → same garland recipe",
+ "pr-m":"Meters","pr-ft":"Feet","bl-rdiam":"Diameter","bh-rdiam":"Measure across widest point",
+ "bl-rhalf":"Half circle?","r-full-opt":"Full circle","r-half-opt":"Half circle",
+ "bl-r-prices":"Prices (independent):","btn-r-copy":"📋 Copy from Garland",
+ "r18-piece":"By piece","r18-bag":"By bag",
+ "bl-rtotal":"Balloons","bl-rbags":"Bags","bl-rmcost":"Material Cost","bl-rsug":"Suggested Price",
+ "bl-rect":"Rectangular Wall","bl-rect-info":"Area ÷ 0.35m → linear meters → same garland recipe",
+ "prect-m":"Meters","prect-ft":"Feet","bl-rw":"Width","bh-rw":"Horizontal measurement",
+ "bl-rh":"Height","bh-rh":"Vertical measurement",
+ "bl-rect-prices":"Prices (independent):","btn-rect-copy":"📋 Copy from Garland",
+ "rect18-piece":"By piece","rect18-bag":"By bag",
+ "bl-recttotal":"Balloons","bl-rectbags":"Bags","bl-rectmcost":"Material Cost","bl-rectsug":"Suggested Price",
+ "bl-col":"Balloon Column","bl-col-info":"Height = linear meters directly → same garland recipe",
+ "pcol-m":"Meters","pcol-ft":"Feet","bl-colh":"Column height","bh-colh":"Full height floor to top",
+ "bl-colnum":"Number of columns","bh-colnum":"How many columns","col-sym2":"pcs",
+ "bl-col-prices":"Prices (independent):","btn-col-copy":"📋 Copy from Garland",
+ "col18-piece":"By piece","col18-bag":"By bag",
+ "bl-coltotal":"Balloons","bl-colbags":"Bags","bl-colmcost":"Material Cost","bl-colsug":"Suggested Price",
+ "bl-sup":"Helium & Supplies","bl-helium":"Helium / gas","bh-helium":"Cost of helium for this job",
+ "bl-supplies":"Ribbon & supplies","bh-supplies":"All consumables used",
+ "bl-markup-title":"Pricing Markup","bl-markup-lbl":"Price multiplier",
+ "bl-markup-hint":"Garland/backdrop/wall: 3-4x · Column: 2.5-3x material cost",
+ "bl-results":"BALLOON JOB SUMMARY","bl-cost":"Total Materials","bl-profit":"Your Profit",
+ "bl-price":"Suggested Price to Client","bl-dep":"Deposit 50%","bl-bal":"Balance Due",
+ "btn-transfer":"➡️ Transfer Cost to Full Event Tab",
+ "btn-b-reset":"🔄 Reset","btn-b-quote":"🖨️ Client Quote","btn-b-wa":"💬 Share via WhatsApp",
+ "st-title":"Settings","st-wlbl":"Wastage %","st-whint":"Auto-added to every balloon quantity",
+ "st-mplbl":"Minimum Profit","st-mphint":"Warning only — price NOT auto-raised",
+ "st-blbl":"Saved Brands","st-bhint":"Save brand with bag price and size",
+ "btn-add-brand":"+ Add brand","btn-st-save":"Save Settings",
+ "st-hlbl":"Last 5 Events",
+ "ql-title":"Client Quotation","ql-biz":"Business Name","ql-date":"Date",
+ "ql-client":"Client Name","ql-event":"Event Type","ql-notes":"Notes",
+ "ql-breakdown":"Service Breakdown","ql-total":"Total Price",
+ "ql-dep":"Deposit 50%","ql-bal":"Balance Due","ql-close":"Close","ql-print":"Print"
+},
+fr:{dir:"ltr",
+ "tab-event":"🎉 Événement complet","tab-balloons":"🎈 Ballons seulement",
+ "lvl-s":"⭐ Débutant","lvl-p":"🌟 Professionnel",
+ "el-s1":"Matériaux","el-note":"💡 Calculez le coût des ballons dans l'onglet Ballons, puis cliquez Transférer.",
+ "el-balloons":"Coût ballons","eh-balloons":"Depuis l'onglet Ballons ou saisir manuellement",
+ "el-helium":"Hélium / gaz","eh-helium":"Coût de l'hélium pour cet événement",
+ "el-supplies":"Ruban & fournitures","eh-supplies":"Ruban, adhésif, crochets, fil",
+ "el-metal":"Location accessoires métalliques","eh-metal":"Arches, supports, cadres métalliques",
+ "el-wood":"Location accessoires en bois","eh-wood":"Fonds de scène, chevalets, supports",
+ "el-extras":"Laser, impressions & extras","eh-extras":"Lettres laser, acrylique, impressions",
+ "el-s2":"Main-d'œuvre & Temps","el-ls":"Coût total main-d'œuvre","eh-ls":"Total que vous vous payez",
+ "el-mh":"🎈 Fabrication des ballons","el-hrs":"h","el-hrs2":"h","el-sh":"🔧 Installation sur site",
+ "el-ltotal":"Total main-d'œuvre",
+ "el-delivery":"Livraison","eh-delivery":"Coût de transport aller-retour",
+ "el-oh":"Frais généraux %","eh-oh":"Téléphone, entretien, essence — 5-10%",
+ "el-disc":"Remise","eh-disc":"Seulement si prix spécial",
+ "el-s3":"Votre Bénéfice","el-pct":"Marge bénéficiaire %","eh-pct":"Ajoutée AU-DESSUS des coûts. Recommandé 25-40%",
+ "el-results":"RÉSUMÉ DU DEVIS","el-cost":"Coût Total","el-profit":"Votre Bénéfice",
+ "el-price":"Prix à Facturer","el-dep":"Acompte 50%","el-bal":"Solde Restant",
+ "btn-e-reset":"🔄 Réinitialiser","btn-e-quote":"🖨️ Devis Client","btn-e-wa":"💬 Partager WhatsApp",
+ "bl-garland":"Guirlande Organique","sst":"Fine","sss":"base 8\"","slt":"Dense","sls":"base 11/12\"",
+ "pg-m":"Mètres","pg-ft":"Pieds","bl-glen":"Longueur guirlande","bh-glen":"Longueur totale nécessaire",
+ "bl-sizes":"Tailles de ballons nécessaires:","bl-pbase":"pcs — sachets","bl-p5":"pcs — sachets","bl-p18":"ballons",
+ "g18-piece":"À l'unité","g18-bag":"Par sachet","bl-e18":"Prix unitaire:",
+ "bl-accent":"Ballons accent (optionnel):","bl-g24":"pcs","bl-g36":"pcs",
+ "bl-addons":"Accessoires","bl-q1":"Qté","bl-p1":"Prix","bl-q2":"Qté","bl-p2":"Prix","bl-q3":"Qté","bl-p3":"Prix",
+ "bl-flowers":"🌸 Fleurs",
+ "bl-total":"Ballons","bl-bags":"Sachets","bl-mcost":"Coût Matériaux","bl-sugprice":"Prix Suggéré",
+ "bl-round":"Fond de Scène Rond","bl-round-info":"Circonférence = π × diamètre → mètres linéaires → même recette",
+ "pr-m":"Mètres","pr-ft":"Pieds","bl-rdiam":"Diamètre","bh-rdiam":"Mesure au point le plus large",
+ "bl-rhalf":"Demi-cercle?","r-full-opt":"Cercle complet","r-half-opt":"Demi-cercle",
+ "bl-r-prices":"Prix (indépendants):","btn-r-copy":"📋 Copier de la Guirlande",
+ "r18-piece":"À l'unité","r18-bag":"Par sachet",
+ "bl-rtotal":"Ballons","bl-rbags":"Sachets","bl-rmcost":"Coût Matériaux","bl-rsug":"Prix Suggéré",
+ "bl-rect":"Mur Rectangulaire","bl-rect-info":"Surface ÷ 0.35m → mètres linéaires → même recette",
+ "prect-m":"Mètres","prect-ft":"Pieds","bl-rw":"Largeur","bh-rw":"Mesure horizontale",
+ "bl-rh":"Hauteur","bh-rh":"Mesure verticale",
+ "bl-rect-prices":"Prix (indépendants):","btn-rect-copy":"📋 Copier de la Guirlande",
+ "rect18-piece":"À l'unité","rect18-bag":"Par sachet",
+ "bl-recttotal":"Ballons","bl-rectbags":"Sachets","bl-rectmcost":"Coût Matériaux","bl-rectsug":"Prix Suggéré",
+ "bl-col":"Colonne de Ballons","bl-col-info":"Hauteur = mètres linéaires → même recette",
+ "pcol-m":"Mètres","pcol-ft":"Pieds","bl-colh":"Hauteur colonne","bh-colh":"Hauteur totale sol au sommet",
+ "bl-colnum":"Nombre de colonnes","bh-colnum":"Combien de colonnes","col-sym2":"pcs",
+ "bl-col-prices":"Prix (indépendants):","btn-col-copy":"📋 Copier de la Guirlande",
+ "col18-piece":"À l'unité","col18-bag":"Par sachet",
+ "bl-coltotal":"Ballons","bl-colbags":"Sachets","bl-colmcost":"Coût Matériaux","bl-colsug":"Prix Suggéré",
+ "bl-sup":"Hélium & Fournitures","bl-helium":"Hélium / gaz","bh-helium":"Coût hélium pour ce travail",
+ "bl-supplies":"Ruban & fournitures","bh-supplies":"Tous les consommables",
+ "bl-markup-title":"Calcul du Prix","bl-markup-lbl":"Multiplicateur",
+ "bl-markup-hint":"Guirlande/fond/mur: 3-4x · Colonne: 2.5-3x coût matériaux",
+ "bl-results":"RÉSUMÉ BALLONS","bl-cost":"Total Matériaux","bl-profit":"Votre Bénéfice",
+ "bl-price":"Prix Suggéré Client","bl-dep":"Acompte 50%","bl-bal":"Solde Restant",
+ "btn-transfer":"➡️ Transférer vers Événement",
+ "btn-b-reset":"🔄 Réinitialiser","btn-b-quote":"🖨️ Devis Client","btn-b-wa":"💬 Partager WhatsApp",
+ "st-title":"Paramètres","st-wlbl":"Taux de gaspillage %","st-whint":"Ajouté automatiquement à chaque quantité",
+ "st-mplbl":"Bénéfice minimum","st-mphint":"Avertissement seulement — prix NON augmenté",
+ "st-blbl":"Marques enregistrées","st-bhint":"Nom marque + prix sachet + taille",
+ "btn-add-brand":"+ Ajouter marque","btn-st-save":"Enregistrer",
+ "st-hlbl":"5 derniers événements",
+ "ql-title":"Devis Client","ql-biz":"Nom commercial","ql-date":"Date",
+ "ql-client":"Nom du client","ql-event":"Type d'événement","ql-notes":"Notes",
+ "ql-breakdown":"Détail des services","ql-total":"Prix total",
+ "ql-dep":"Acompte 50%","ql-bal":"Solde restant","ql-close":"Fermer","ql-print":"Imprimer"
+},
+de:{dir:"ltr",
+ "tab-event":"🎉 Vollständiges Event","tab-balloons":"🎈 Nur Ballons",
+ "lvl-s":"⭐ Einsteiger","lvl-p":"🌟 Profi",
+ "el-s1":"Materialien","el-note":"💡 Ballonkosten im Reiter Ballons berechnen, dann Übertragen.",
+ "el-balloons":"Ballonkosten","eh-balloons":"Vom Reiter Ballons oder manuell eingeben",
+ "el-helium":"Helium / Gas","eh-helium":"Kosten des Heliums für dieses Event",
+ "el-supplies":"Band & Zubehör","eh-supplies":"Band, Klebeband, Haken, Angelschnur",
+ "el-metal":"Metall-Requisiten-Miete","eh-metal":"Metallbögen, Ständer, Rahmen",
+ "el-wood":"Holz-Requisiten-Miete","eh-wood":"Holzkulissen, Staffeleien, Ständer",
+ "el-extras":"Laser, Druck & Extras","eh-extras":"Laserbuchstaben, Acryl, Drucke",
+ "el-s2":"Arbeit & Zeit","el-ls":"Ihre gesamten Arbeitskosten","eh-ls":"Gesamtbetrag den Sie sich zahlen",
+ "el-mh":"🎈 Ballons herstellen","el-hrs":"Std","el-hrs2":"Std","el-sh":"🔧 Aufbau vor Ort",
+ "el-ltotal":"Gesamte Arbeit",
+ "el-delivery":"Lieferung","eh-delivery":"Transportkosten hin und zurück",
+ "el-oh":"Gemeinkosten %","eh-oh":"Telefon, Wartung, Benzin — 5-10%",
+ "el-disc":"Rabatt","eh-disc":"Nur bei Sonderpreis",
+ "el-s3":"Ihr Gewinn","el-pct":"Gewinnmarge %","eh-pct":"Über den Kosten. Empfohlen 25-40%",
+ "el-results":"IHR ANGEBOT","el-cost":"Gesamtkosten","el-profit":"Ihr Gewinn",
+ "el-price":"Preis für Kunde","el-dep":"Anzahlung 50%","el-bal":"Restbetrag",
+ "btn-e-reset":"🔄 Zurücksetzen","btn-e-quote":"🖨️ Angebot erstellen","btn-e-wa":"💬 WhatsApp teilen",
+ "bl-garland":"Organische Girlande","sst":"Schmal","sss":"8\" Basis","slt":"Üppig","sls":"11/12\" Basis",
+ "pg-m":"Meter","pg-ft":"Fuß","bl-glen":"Girlanden-Länge","bh-glen":"Gesamtlänge benötigt",
+ "bl-sizes":"Benötigte Ballongrößen:","bl-pbase":"Stk — Beutel","bl-p5":"Stk — Beutel","bl-p18":"Ballons",
+ "g18-piece":"Einzeln","g18-bag":"Im Beutel","bl-e18":"Preis je:",
+ "bl-accent":"Akzent-Ballons (optional):","bl-g24":"Stk","bl-g36":"Stk",
+ "bl-addons":"Extras","bl-q1":"Menge","bl-p1":"Preis","bl-q2":"Menge","bl-p2":"Preis","bl-q3":"Menge","bl-p3":"Preis",
+ "bl-flowers":"🌸 Blumen",
+ "bl-total":"Ballons","bl-bags":"Beutel","bl-mcost":"Materialkosten","bl-sugprice":"Empf. Preis",
+ "bl-round":"Runde Kulisse","bl-round-info":"Umfang = π × Durchmesser → laufende Meter → gleiche Rezeptur",
+ "pr-m":"Meter","pr-ft":"Fuß","bl-rdiam":"Durchmesser","bh-rdiam":"Maß an der breitesten Stelle",
+ "bl-rhalf":"Halbkreis?","r-full-opt":"Voller Kreis","r-half-opt":"Halbkreis",
+ "bl-r-prices":"Preise (unabhängig):","btn-r-copy":"📋 Von Girlande kopieren",
+ "r18-piece":"Einzeln","r18-bag":"Im Beutel",
+ "bl-rtotal":"Ballons","bl-rbags":"Beutel","bl-rmcost":"Materialkosten","bl-rsug":"Empf. Preis",
+ "bl-rect":"Rechteckige Wand","bl-rect-info":"Fläche ÷ 0.35m → laufende Meter → gleiche Rezeptur",
+ "prect-m":"Meter","prect-ft":"Fuß","bl-rw":"Breite","bh-rw":"Horizontales Maß",
+ "bl-rh":"Höhe","bh-rh":"Vertikales Maß",
+ "bl-rect-prices":"Preise (unabhängig):","btn-rect-copy":"📋 Von Girlande kopieren",
+ "rect18-piece":"Einzeln","rect18-bag":"Im Beutel",
+ "bl-recttotal":"Ballons","bl-rectbags":"Beutel","bl-rectmcost":"Materialkosten","bl-rectsug":"Empf. Preis",
+ "bl-col":"Ballonsäule","bl-col-info":"Höhe = laufende Meter → gleiche Rezeptur",
+ "pcol-m":"Meter","pcol-ft":"Fuß","bl-colh":"Säulenhöhe","bh-colh":"Höhe vom Boden bis zur Spitze",
+ "bl-colnum":"Anzahl Säulen","bh-colnum":"Wie viele Säulen","col-sym2":"Stk",
+ "bl-col-prices":"Preise (unabhängig):","btn-col-copy":"📋 Von Girlande kopieren",
+ "col18-piece":"Einzeln","col18-bag":"Im Beutel",
+ "bl-coltotal":"Ballons","bl-colbags":"Beutel","bl-colmcost":"Materialkosten","bl-colsug":"Empf. Preis",
+ "bl-sup":"Helium & Zubehör","bl-helium":"Helium / Gas","bh-helium":"Heliumkosten für diesen Auftrag",
+ "bl-supplies":"Band & Zubehör","bh-supplies":"Alle Verbrauchsmaterialien",
+ "bl-markup-title":"Preiskalkulation","bl-markup-lbl":"Preismultiplikator",
+ "bl-markup-hint":"Girlande/Kulisse/Wand: 3-4x · Säule: 2.5-3x Materialkosten",
+ "bl-results":"BALLONAUFTRAG ZUSAMMENFASSUNG","bl-cost":"Gesamte Materialien","bl-profit":"Ihr Gewinn",
+ "bl-price":"Empfohlener Preis","bl-dep":"Anzahlung 50%","bl-bal":"Restbetrag",
+ "btn-transfer":"➡️ In Event-Reiter übertragen",
+ "btn-b-reset":"🔄 Zurücksetzen","btn-b-quote":"🖨️ Angebot erstellen","btn-b-wa":"💬 WhatsApp teilen",
+ "st-title":"Einstellungen","st-wlbl":"Verschnitt %","st-whint":"Automatisch zu jeder Menge hinzugefügt",
+ "st-mplbl":"Mindestgewinn","st-mphint":"Nur Warnung — Preis NICHT automatisch erhöht",
+ "st-blbl":"Gespeicherte Marken","st-bhint":"Markenname + Beutelpreis + Größe",
+ "btn-add-brand":"+ Marke hinzufügen","btn-st-save":"Speichern",
+ "st-hlbl":"Letzte 5 Events",
+ "ql-title":"Kundenangebot","ql-biz":"Firmenname","ql-date":"Datum",
+ "ql-client":"Kundenname","ql-event":"Veranstaltungstyp","ql-notes":"Notizen",
+ "ql-breakdown":"Leistungsübersicht","ql-total":"Gesamtpreis",
+ "ql-dep":"Anzahlung 50%","ql-bal":"Restbetrag","ql-close":"Schließen","ql-print":"Drucken"
+}
+};
+
+function setLang(l){
+  lang=l;
+  var t=TR[l]||TR.en;
+  document.documentElement.lang=l;
+  document.documentElement.dir=t.dir;
+  ["lb-ar","lb-en","lb-fr","lb-de"].forEach(function(id){setCls(id,"lb"+(id==="lb-"+l?" on":""));});
+  // Apply all translations
+  Object.keys(t).forEach(function(k){
+    if(k==="dir") return;
+    var e=g(k);
+    if(e) e.textContent=t[k];
+  });
+  // Update currency symbol display
+  setTxt("st-sym",sym);
+  setGStyle(gStyle);
+  calcEvent();calcBSum();
+}
+
+// ── BIND ALL EVENTS ──────────────────────────────────────
+function init(){
+  loadBrands();
+  // Mode
+  g("tab-event").onclick=function(){setMode("event");};
+  g("tab-balloons").onclick=function(){setMode("balloons");};
+  // Lang
+  g("lb-ar").onclick=function(){setLang("ar");};
+  g("lb-en").onclick=function(){setLang("en");};
+  g("lb-fr").onclick=function(){setLang("fr");};
+  g("lb-de").onclick=function(){setLang("de");};
+  // Country
+  g("country").onchange=setCountry;
+  // Level
+  g("lvl-s").onclick=function(){setLevel("starter");};
+  g("lvl-p").onclick=function(){setLevel("pro");};
+  // Garland style
+  g("style-slim").onclick=function(){setGStyle("slim");};
+  g("style-lush").onclick=function(){setGStyle("lush");};
+  // Unit toggles
+  g("pg-m").onclick=function(){setSzG("m");};g("pg-ft").onclick=function(){setSzG("ft");};
+  g("pr-m").onclick=function(){setSzR("m");};g("pr-ft").onclick=function(){setSzR("ft");};
+  g("prect-m").onclick=function(){setSzRect("m");};g("prect-ft").onclick=function(){setSzRect("ft");};
+  g("pcol-m").onclick=function(){setSzCol("m");};g("pcol-ft").onclick=function(){setSzCol("ft");};
+  // 18" toggles
+  g("g18-piece").onclick=function(){set18("g","piece");};g("g18-bag").onclick=function(){set18("g","bag");};
+  g("r18-piece").onclick=function(){set18("r","piece");};g("r18-bag").onclick=function(){set18("r","bag");};
+  g("rect18-piece").onclick=function(){set18("rect","piece");};g("rect18-bag").onclick=function(){set18("rect","bag");};
+  g("col18-piece").onclick=function(){set18("col","piece");};g("col18-bag").onclick=function(){set18("col","bag");};
+  // Brand dropdowns
+  g("g-brand-base").onchange=function(){applyBrand(this,"bag-base","bp-base");};
+  g("g-brand-5").onchange=function(){applyBrand(this,"bag5","bp5");};
+  // Copy buttons
+  g("btn-r-copy").onclick=function(){copyFromGarland("r");};
+  g("btn-rect-copy").onclick=function(){copyFromGarland("rect");};
+  g("btn-col-copy").onclick=function(){copyFromGarland("col");};
+  // Markup
+  g("b-markup").oninput=syncMarkup;
+  // r-half
+  g("r-half").onchange=calcRound;
+  // Event inputs
+  ["e-balloons","e-helium","e-supplies","e-metal","e-wood","e-extras","e-ls","e-mh","e-mr","e-sh","e-sr","e-delivery","e-oh","e-disc","e-pct"].forEach(function(id){var e=g(id);if(e)e.oninput=calcEvent;});
+  // Balloon inputs - garland
+  ["glen","bp-base","bp5","pp18","bp18","g24q","g24p","g36q","g36p","bobo-q","bobo-p","orbz-q","orbz-p","flow-q","flow-p","b-helium","b-supplies"].forEach(function(id){var e=g(id);if(e)e.oninput=calcGarland;});
+  ["bag-base","bag5","bag18"].forEach(function(id){var e=g(id);if(e)e.onchange=calcGarland;});
+  // Round inputs
+  ["rdiam","r-bp-base","r-bp5","r-pp18","r-bp18"].forEach(function(id){var e=g(id);if(e)e.oninput=calcRound;});
+  ["r-bag-base","r-bag5","r-bag18","r-half"].forEach(function(id){var e=g(id);if(e)e.onchange=calcRound;});
+  // Rect inputs
+  ["rw","rh","rect-bp-base","rect-bp5","rect-pp18","rect-bp18"].forEach(function(id){var e=g(id);if(e)e.oninput=calcRect;});
+  ["rect-bag-base","rect-bag5","rect-bag18"].forEach(function(id){var e=g(id);if(e)e.onchange=calcRect;});
+  // Col inputs
+  ["colh","colnum","col-bp-base","col-bp5","col-pp18","col-bp18"].forEach(function(id){var e=g(id);if(e)e.oninput=calcCol;});
+  ["col-bag-base","col-bag5","col-bag18"].forEach(function(id){var e=g(id);if(e)e.onchange=calcCol;});
+  // Buttons
+  g("btn-settings").onclick=openSettings;
+  g("btn-st-close").onclick=closeSettings;
+  g("btn-st-save").onclick=saveSettings;
+  g("btn-add-brand").onclick=addBrand;
+  g("btn-e-reset").onclick=resetEvent;
+  g("btn-b-reset").onclick=resetBalloons;
+  g("btn-e-quote").onclick=function(){openQ("event");};
+  g("btn-b-quote").onclick=function(){openQ("balloons");};
+  g("btn-q-close").onclick=closeQ;
+  g("btn-q-close2").onclick=closeQ;
+  g("btn-q-print").onclick=printQ;
+  g("btn-e-wa").onclick=function(){shareWA("event");};
+  g("btn-b-wa").onclick=function(){shareWA("balloons");};
+  g("btn-transfer").onclick=doTransfer;
+  // Modal backdrop close
+  g("m-settings").onclick=function(e){if(e.target===this)closeSettings();};
+  g("m-quote").onclick=function(e){if(e.target===this)closeQ();};
+  // Init state
+  setMode("event");
+  setLevel("starter");
+  setGStyle("slim");
+  set18("g","piece");set18("r","piece");set18("rect","piece");set18("col","piece");
+  g("q-date").value=new Date().toISOString().split("T")[0];
+  updateBrandDropdowns();
+  loadSession();
+  renderHistory();
+}
+
+document.addEventListener("DOMContentLoaded",init);
+</script>
+</body>
+</html>
