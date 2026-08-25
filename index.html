@@ -669,6 +669,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
 </div>
 <script>
 var sym="ج.م",lang="ar",level="starter",markup=3.0;
+var initializing=false;
 var gStyle="slim",szG="m",szR="m",szRect="m",szCol="m";
 var g18m="piece",r18m="piece",rect18m="piece",col18m="piece";
 var WASTAGE=1.10,minProfit=0,brands=[];
@@ -883,6 +884,7 @@ function calcBSum(){
   lesson.textContent=rep(lang==="ar"?"تكلفة موادك {c} × {m} = سعر مقترح {px}. ربحك: {pr}.":"Material cost {c} × {m} = suggested price {px}. Profit: {pr}.",{c:fmt(tot),m:markup.toFixed(1),px:fmt(price),pr:fmt(profit)});
   if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=(lang==="ar"?"⚠️ الربح الحالي (":"⚠️ Current profit (")+fmt(profit)+(lang==="ar"?") أقل من حدك الأدنى (":" is below your minimum (")+fmt(minProfit)+")";}
   else warn.className="minwarn";
+  autoSave();
 }
 
 // ── EVENT CALC ──────────────────────────────────────────
@@ -1163,6 +1165,7 @@ function renderHistory(){
 
 // ── AUTO-SAVE ─────────────────────────────────────────────
 function autoSave(){
+  if(initializing)return;
   try{
     var data={};
     document.querySelectorAll("input[type=number],select").forEach(function(e){if(e.id)data[e.id]=e.value;});
@@ -1465,6 +1468,7 @@ function setLang(l){
 
 // ── BIND ALL EVENTS ──────────────────────────────────────
 function init(){
+  initializing=true;
   loadBrands();
   // Mode
   g("tab-event").onclick=function(){setMode("event");};
@@ -1544,6 +1548,7 @@ function init(){
   updateBrandDropdowns();
   loadSession();
   renderHistory();
+  initializing=false;
 }
 
 document.addEventListener("DOMContentLoaded",init);
