@@ -164,176 +164,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
 .qclose-btn{padding:12px 14px;border-radius:var(--rsm);background:var(--pl);color:var(--pk);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;}
 .print-hdr{display:none;text-align:center;padding:16px 0 10px;border-bottom:2px solid var(--pm);margin-bottom:12px;}
 .qnotes-disp{font-size:12px;color:var(--t3);font-style:italic;margin-bottom:9px;}
-@media print{body>*{visibility:hidden;}#printable,#printable *{visibility:visible;}#printable{position:fixed;inset:0;padding:28px;}.no-print{display:none!important;}}
-</style>
-</head>
-<body><!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-<title>Price It Right — by Rania Alwais</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-:root{--pink:#c9607e;--pk:#a8455f;--pl:#fce8ee;--pm:#f0b8c8;--bg:#fff0f4;--card:#fff;--text:#1a0810;--t2:#3d1020;--t3:#6a3045;--border:#e0a0b4;--green:#1a6e3e;--gbg:#e2f5eb;--warn:#7a3e00;--wbg:#fff0dc;--blue:#1a4a8a;--bbg:#e8f0fc;--rad:16px;--rsm:11px;}
-html,body{min-height:100vh;font-family:"Inter",sans-serif;background:var(--bg);color:var(--text);font-size:15px;}
-.app{max-width:500px;margin:0 auto;padding:16px 14px 130px;}
-.hdr{padding:18px 20px;background:#fff;border-radius:var(--rad);margin-bottom:14px;border:2px solid var(--pm);display:flex;align-items:center;justify-content:space-between;}
-.hdr-title{font-family:"Poppins",sans-serif;font-size:22px;font-weight:800;color:var(--text);}
-.hdr-title em{color:var(--pink);font-style:normal;}
-.hdr-sub{font-size:11px;color:var(--t3);font-weight:500;margin-top:2px;}
-.hdr-sub2{font-size:10px;color:var(--pink);font-weight:600;margin-top:1px;}
-.settings-btn{background:var(--pl);border:none;color:var(--pink);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.top-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
-.mode-pills{display:flex;background:var(--pm);border-radius:50px;padding:4px;gap:2px;width:100%;}
-.mpill{flex:1;padding:10px 8px;border-radius:50px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
-.mpill.on{background:#fff;color:var(--text);}
-.rrow{display:flex;gap:7px;align-items:center;width:100%;}
-.csel{flex:1;height:38px;padding:0 10px;border-radius:50px;border:2px solid var(--pm);background:#fff;color:var(--text);font-size:13px;font-weight:700;font-family:"Inter",sans-serif;cursor:pointer;}
-.langs{display:flex;background:var(--pm);border-radius:50px;padding:3px;gap:1px;}
-.lb{padding:6px 10px;border-radius:50px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
-.lb.on{background:#fff;color:var(--text);}
-.level-bar{display:flex;background:var(--pm);border-radius:50px;padding:4px;gap:2px;margin-bottom:12px;}
-.lvl{flex:1;padding:9px 8px;border-radius:50px;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
-.lvl.on{background:#fff;color:var(--text);}
-.page{display:none;}.page.show{display:block;}
-.card{background:var(--card);border:2px solid var(--pm);border-radius:var(--rad);padding:18px;margin-bottom:12px;}
-.card-accent{border-right:5px solid var(--pink);}
-[dir=ltr] .card-accent{border-right:none;border-left:5px solid var(--pink);}
-.ch{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
-.ci{width:40px;height:40px;border-radius:11px;flex-shrink:0;background:linear-gradient(135deg,var(--pl),var(--pink));display:flex;align-items:center;justify-content:center;font-size:19px;}
-.ct{font-family:"Poppins",sans-serif;font-size:17px;font-weight:700;color:var(--text);}
-.cdiv{height:1px;background:var(--pm);margin:12px 0;}
-.stitle{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px;}
-.ir{display:flex;align-items:flex-start;gap:8px;margin-bottom:12px;}
-.il-wrap{flex:1;}
-.il{font-size:14px;font-weight:600;color:var(--t2);display:block;}
-.hint{font-size:11px;color:var(--t3);font-weight:500;margin-top:2px;line-height:1.4;}
-.iw{position:relative;flex-shrink:0;margin-top:2px;}
-.iw input{width:120px;text-align:right;padding:9px 36px 9px 10px;border:2px solid var(--border);border-radius:var(--rsm);background:#fff;color:var(--text);font-size:14px;font-weight:700;font-family:"Inter",sans-serif;-moz-appearance:textfield;}
-.iw input::-webkit-outer-spin-button,.iw input::-webkit-inner-spin-button{-webkit-appearance:none;}
-.iw input:focus{outline:none;border-color:var(--pink);}
-.isym{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--t3);font-weight:700;pointer-events:none;}
-[dir=ltr] .iw input{text-align:left;padding:9px 10px 9px 36px;}
-[dir=ltr] .isym{right:auto;left:8px;}
-.ptog{display:flex;background:var(--pl);border-radius:50px;padding:3px;gap:2px;width:fit-content;margin-bottom:8px;}
-.pb{padding:5px 12px;border-radius:50px;border:none;cursor:pointer;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;background:transparent;color:var(--pk);}
-.pb.on{background:#fff;color:var(--text);}
-.style-tog{display:flex;gap:8px;margin-bottom:12px;}
-.style-opt{flex:1;padding:11px 8px;border-radius:var(--rsm);border:2px solid var(--pm);cursor:pointer;background:#fff;text-align:center;}
-.style-opt.on{border-color:var(--pink);background:var(--pl);}
-.style-opt-title{font-size:13px;font-weight:700;color:var(--t2);}
-.style-opt-sub{font-size:11px;color:var(--t3);margin-top:2px;}
-.ibox{background:var(--bbg);border-radius:var(--rsm);padding:10px 12px;margin-bottom:11px;font-size:12px;font-weight:600;color:var(--blue);line-height:1.6;}
-.szblock{background:var(--pl);border-radius:var(--rsm);padding:13px;margin-bottom:12px;}
-.szrow{display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap;}
-.badge{min-width:38px;text-align:center;font-size:11px;font-weight:700;color:#fff;background:var(--pink);border-radius:50px;padding:3px 7px;flex-shrink:0;}
-.qty{min-width:30px;font-size:14px;font-weight:700;color:var(--text);text-align:center;}
-.qlbl{font-size:11px;color:var(--t3);font-weight:600;flex:1;}
-.bagrow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:5px;padding-right:45px;}
-[dir=ltr] .bagrow{padding-right:0;padding-left:45px;}
-.bsel{height:27px;padding:0 6px;border-radius:50px;border:1.5px solid var(--border);background:#fff;color:var(--text);font-size:11px;font-weight:700;cursor:pointer;}
-.binfo{font-size:12px;font-weight:700;color:var(--pink);}
-.pinp{width:78px;text-align:center;padding:5px 6px;border:1.5px solid var(--border);border-radius:50px;background:#fff;color:var(--text);font-size:12px;font-weight:700;-moz-appearance:textfield;}
-.pinp::-webkit-outer-spin-button,.pinp::-webkit-inner-spin-button{-webkit-appearance:none;}
-.pinp:focus{outline:none;border-color:var(--pink);}
-.psym{font-size:10px;color:var(--t3);font-weight:700;}
-.prow{display:flex;align-items:center;gap:5px;margin-top:5px;padding-right:45px;flex-wrap:wrap;}
-[dir=ltr] .prow{padding-right:0;padding-left:45px;}
-.copy-btn{padding:3px 9px;border-radius:50px;border:1.5px solid var(--pink);background:var(--pl);color:var(--pink);font-size:11px;font-weight:700;cursor:pointer;}
-.addon-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
-.acard{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:9px;}
-.aname{font-size:11px;font-weight:700;color:var(--t2);margin-bottom:7px;text-align:center;}
-.arow{display:flex;align-items:center;gap:3px;margin-bottom:5px;}
-.albl{font-size:10px;font-weight:600;color:var(--t3);min-width:26px;}
-.ainp{flex:1;width:0;text-align:center;padding:4px 3px;border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-weight:700;-moz-appearance:textfield;}
-.ainp::-webkit-outer-spin-button,.ainp::-webkit-inner-spin-button{-webkit-appearance:none;}
-.ainp:focus{outline:none;border-color:var(--pink);}
-.bres{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:12px;}
-.bres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:8px;}
-.bri{text-align:center;}
-.brl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:3px;}
-.brv{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;color:var(--text);}
-.brv.pink{color:var(--pink);}
-.bres-price{text-align:center;padding-top:8px;border-top:1px solid var(--pm);}
-.bres-price .brv{font-size:21px;color:var(--green);}
-.markup-box{background:var(--pl);border-radius:var(--rsm);padding:13px;margin-bottom:10px;}
-.markup-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:9px;}
-.markup-lbl{font-size:14px;font-weight:700;color:var(--t2);}
-.markup-hint{font-size:11px;color:var(--t3);margin-top:3px;line-height:1.5;}
-.markup-val{font-family:"Poppins",sans-serif;font-size:32px;font-weight:800;color:var(--pink);line-height:1;}
-.markup-val span{font-size:14px;font-weight:400;}
-input[type=range]{width:100%;height:5px;border-radius:3px;accent-color:var(--pink);cursor:pointer;appearance:none;background:var(--pm);}
-input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;border-radius:50%;background:var(--pink);border:3px solid #fff;box-shadow:0 2px 6px rgba(201,96,126,.4);cursor:pointer;}
-.markup-scale{display:flex;justify-content:space-between;margin-top:4px;}
-.mscale{font-size:10px;font-weight:700;color:var(--t3);}
-.lesson{border-radius:var(--rsm);padding:11px 13px;margin:10px 0;font-size:13px;line-height:1.7;font-weight:500;}
-.lesson.n{background:var(--bbg);color:var(--blue);}
-.lesson.r{background:var(--wbg);color:var(--warn);}
-.lesson.o{background:var(--wbg);color:var(--warn);}
-.lesson.g{background:var(--gbg);color:var(--green);}
-.minwarn{background:var(--wbg);border-radius:var(--rsm);padding:10px 12px;margin-bottom:10px;font-size:12px;font-weight:700;color:var(--warn);display:none;}
-.minwarn.on{display:block;}
-.res-hdr{font-size:11px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;text-align:center;}
-.resgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
-.rc{background:#fff;border:2px solid var(--pm);border-radius:var(--rsm);padding:13px;}
-.rc.big{grid-column:span 2;background:linear-gradient(135deg,var(--pink),var(--pk));border-color:var(--pk);padding:16px;}
-.rl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:6px;}
-.rc.big .rl{color:rgba(255,255,255,.75);}
-.rv{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;color:var(--text);}
-.rc.big .rv{color:#fff;font-size:28px;}
-.rv.g{color:var(--green);}
-.btn-pink{width:100%;padding:13px;border-radius:var(--rsm);background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;margin-bottom:8px;}
-.btn-out{width:100%;padding:12px;border-radius:var(--rsm);background:#fff;color:var(--pink);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;margin-bottom:8px;}
-.transfer-ok{background:var(--gbg);border-radius:var(--rsm);padding:10px;margin-bottom:8px;font-size:12px;font-weight:700;color:var(--green);text-align:center;display:none;}
-.transfer-ok.on{display:block;}
-.lbox{background:var(--pl);border-radius:var(--rsm);padding:12px;margin-bottom:10px;}
-.lrow{display:flex;align-items:center;gap:5px;margin-bottom:7px;flex-wrap:wrap;}
-.llbl{font-size:13px;font-weight:600;color:var(--t2);flex:1;}
-.leq{font-size:13px;font-weight:700;color:var(--pink);margin-right:auto;}
-[dir=ltr] .leq{margin-right:0;margin-left:auto;}
-.ltotal-row{display:flex;justify-content:space-between;padding-top:7px;border-top:1px solid var(--pm);}
-.footer{text-align:center;padding:8px 0 16px;}
-.ftext{font-family:"Poppins",sans-serif;font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;}
-.ftext strong{color:var(--pink);}
-.modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(26,8,16,.55);align-items:center;justify-content:center;padding:14px;}
-.modal.on{display:flex;}
-.mbox{background:#fff;border-radius:var(--rad);max-width:460px;width:100%;max-height:92vh;overflow-y:auto;}
-.mhd{background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;padding:17px 20px;border-radius:var(--rad) var(--rad) 0 0;display:flex;justify-content:space-between;align-items:center;}
-.mhd-title{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;}
-.mclose{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;}
-.mbody{padding:18px 20px;}
-.ssec{margin-bottom:18px;}
-.slbl{font-size:14px;font-weight:700;color:var(--t2);margin-bottom:3px;}
-.shint{font-size:11px;color:var(--t3);margin-bottom:8px;line-height:1.5;}
-.sinp{width:130px;padding:8px 10px;border:2px solid var(--border);border-radius:var(--rsm);font-size:14px;font-weight:700;font-family:"Inter",sans-serif;}
-.sinp-row{display:flex;align-items:center;gap:8px;}
-.brand-row{display:flex;gap:6px;align-items:center;margin-bottom:7px;background:var(--pl);border-radius:9px;padding:8px;}
-.brand-del{background:#fff;border:1.5px solid var(--border);border-radius:7px;width:28px;height:28px;cursor:pointer;color:var(--warn);font-size:13px;flex-shrink:0;}
-.add-brand-btn{width:100%;padding:9px;border-radius:8px;background:var(--pl);border:1.5px dashed var(--pink);color:var(--pink);font-weight:700;font-size:13px;cursor:pointer;}
-.qfield{background:var(--bg);border-radius:9px;padding:8px 10px;}
-.qfield label{display:block;font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:2px;}
-.qfield input,.qfield textarea{width:100%;border:none;background:transparent;font-size:13px;font-weight:700;color:var(--text);font-family:"Inter",sans-serif;}
-.qfield textarea{resize:none;height:40px;}
-.qfield input:focus,.qfield textarea:focus{outline:none;}
-.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;}
-.qstitle{font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:7px;padding-bottom:4px;border-bottom:1.5px solid var(--pm);}
-.qline{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:var(--t2);margin-bottom:5px;}
-.qline span:last-child{font-weight:700;color:var(--text);}
-.qtotal{background:linear-gradient(135deg,var(--pink),var(--pk));border-radius:var(--rsm);padding:12px 14px;margin:10px 0;}
-.qtotal-lbl{font-size:11px;color:rgba(255,255,255,.8);font-weight:700;text-transform:uppercase;margin-bottom:2px;}
-.qtotal-val{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;color:#fff;}
-.qdep-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
-.qdep-card{background:var(--pl);border-radius:9px;padding:10px;text-align:center;}
-.qdep-lbl{font-size:10px;font-weight:700;color:var(--t3);text-transform:uppercase;margin-bottom:2px;}
-.qdep-val{font-family:"Poppins",sans-serif;font-size:18px;font-weight:700;color:var(--pink);}
-.qbtns{display:flex;gap:7px;}
-.qprint{flex:1;padding:12px;border-radius:var(--rsm);background:linear-gradient(135deg,var(--pink),var(--pk));color:#fff;font-size:14px;font-weight:700;border:none;cursor:pointer;}
-.qclose-btn{padding:12px 14px;border-radius:var(--rsm);background:var(--pl);color:var(--pk);font-size:14px;font-weight:700;border:2px solid var(--pm);cursor:pointer;}
-.print-hdr{display:none;text-align:center;padding:16px 0 10px;border-bottom:2px solid var(--pm);margin-bottom:12px;}
-.qnotes-disp{font-size:12px;color:var(--t3);font-style:italic;margin-bottom:9px;}
-@media print{body>*{visibility:hidden;}#printable,#printable *{visibility:visible;}#printable{position:fixed;inset:0;padding:28px;}.no-print{display:none!important;}}
+@media print{body>*:not(#m-quote){display:none!important;}#m-quote{position:static!important;display:block!important;background:none!important;padding:0!important;}#printable{max-width:100%!important;max-height:none!important;overflow:visible!important;box-shadow:none!important;}.no-print{display:none!important;}}
 </style>
 </head>
 <body>
@@ -405,7 +236,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
     <div>
       <div class="hdr-title">Price It <em>Right</em></div>
       <div class="hdr-sub">Professional Event &amp; Balloon Calculator</div>
-      <div class="hdr-sub2">Designed by Rania Alwais</div>
+      <div class="hdr-sub2 no-print">Designed by Rania Alwais</div>
     </div>
     <button class="settings-btn" id="btn-settings">⚙️</button>
   </div>
@@ -460,6 +291,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
           <div class="ltotal-row"><span style="font-size:12px;font-weight:700;color:var(--t3)" id="el-ltotal">إجمالي العمالة</span><span style="font-size:15px;font-weight:700;color:var(--pink)" id="ltotal-val">0</span></div>
         </div>
       </div>
+      <div class="ir"><div class="il-wrap"><span class="il" id="el-workers">أجرة العمال</span><span class="hint" id="eh-workers">أجور المساعدين اللي بيشتغلوا معاكي في المناسبة</span></div><div class="iw"><input type="number" id="e-workers" value="0" min="0"><span class="isym" id="es-wk">ج.م</span></div></div>
       <div class="ir"><div class="il-wrap"><span class="il" id="el-delivery">التوصيل</span><span class="hint" id="eh-delivery">تكلفة النقل إلى المكان والعودة</span></div><div class="iw"><input type="number" id="e-delivery" value="0" min="0"><span class="isym" id="es-d">ج.م</span></div></div>
       <div id="div-oh" style="display:none">
         <div class="cdiv"></div>
@@ -485,7 +317,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
     <button class="btn-out" id="btn-e-reset">🔄 إعادة تعيين</button>
     <button class="btn-out" id="btn-e-quote">🖨️ عرض سعر للعميل</button>
     <button class="btn-out" id="btn-e-wa">💬 مشاركة عبر واتساب</button>
-    <div class="footer"><div class="ftext">Designed by <strong>Rania Alwais</strong></div></div>
+    <div class="footer no-print"><div class="ftext">Designed by <strong>Rania Alwais</strong></div></div>
   </div>
 
   <!-- BALLOONS PAGE -->
@@ -556,11 +388,11 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
           <div class="stitle" style="margin:0" id="bl-r-prices">الأسعار (مستقلة):</div>
           <button class="copy-btn" id="btn-r-copy">📋 نسخ من الجارلاند</button>
         </div>
-        <div class="szrow"><span class="badge" id="r-base-badge">8"</span><span class="qty" id="rq-base">0</span><span class="qlbl">قطعة</span><select class="bsel" id="r-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="r-bi-base"></span><input type="number" class="pinp" id="r-bp-base" value="0" min="0"><span class="psym" id="r-bps-base">ج.م</span></div>
-        <div class="szrow"><span class="badge">5"</span><span class="qty" id="rq-5">0</span><span class="qlbl">قطعة</span><select class="bsel" id="r-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="r-bi-5"></span><input type="number" class="pinp" id="r-bp5" value="0" min="0"><span class="psym" id="r-bps-5">ج.م</span></div>
-        <div class="szrow"><span class="badge">18"</span><span class="qty" id="rq-18">0</span><span class="qlbl">بالونة</span></div>
+        <div class="szrow"><span class="badge" id="r-base-badge">8"</span><span class="qty" id="rq-base">0</span><span class="qlbl" id="r-pbase">قطعة</span><select class="bsel" id="r-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="r-bi-base"></span><input type="number" class="pinp" id="r-bp-base" value="0" min="0"><span class="psym" id="r-bps-base">ج.م</span></div>
+        <div class="szrow"><span class="badge">5"</span><span class="qty" id="rq-5">0</span><span class="qlbl" id="r-p5">قطعة</span><select class="bsel" id="r-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="r-bi-5"></span><input type="number" class="pinp" id="r-bp5" value="0" min="0"><span class="psym" id="r-bps-5">ج.م</span></div>
+        <div class="szrow"><span class="badge">18"</span><span class="qty" id="rq-18">0</span><span class="qlbl" id="r-p18">بالونة</span></div>
         <div class="bagrow"><div class="ptog"><button class="pb on" id="r18-piece">بالقطعة</button><button class="pb" id="r18-bag">بالكيس</button></div></div>
-        <div class="prow" id="r18-piece-row"><span>سعر القطعة:</span><input type="number" class="pinp" id="r-pp18" value="0" min="0"><span class="psym" id="r-pps18">ج.م</span></div>
+        <div class="prow" id="r18-piece-row"><span id="r-e18">سعر القطعة:</span><input type="number" class="pinp" id="r-pp18" value="0" min="0"><span class="psym" id="r-pps18">ج.م</span></div>
         <div class="bagrow" id="r18-bag-row" style="display:none"><select class="bsel" id="r-bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="r-bi18"></span><input type="number" class="pinp" id="r-bp18" value="0" min="0"><span class="psym" id="r-bps18b">ج.م</span></div>
       </div>
       <div class="bres">
@@ -586,11 +418,11 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
           <div class="stitle" style="margin:0" id="bl-rect-prices">الأسعار (مستقلة):</div>
           <button class="copy-btn" id="btn-rect-copy">📋 نسخ من الجارلاند</button>
         </div>
-        <div class="szrow"><span class="badge" id="rect-base-badge">8"</span><span class="qty" id="rectq-base">0</span><span class="qlbl">قطعة</span><select class="bsel" id="rect-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="rect-bi-base"></span><input type="number" class="pinp" id="rect-bp-base" value="0" min="0"><span class="psym" id="rect-bps-base">ج.م</span></div>
-        <div class="szrow"><span class="badge">5"</span><span class="qty" id="rectq-5">0</span><span class="qlbl">قطعة</span><select class="bsel" id="rect-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="rect-bi-5"></span><input type="number" class="pinp" id="rect-bp5" value="0" min="0"><span class="psym" id="rect-bps-5">ج.م</span></div>
-        <div class="szrow"><span class="badge">18"</span><span class="qty" id="rectq-18">0</span><span class="qlbl">بالونة</span></div>
+        <div class="szrow"><span class="badge" id="rect-base-badge">8"</span><span class="qty" id="rectq-base">0</span><span class="qlbl" id="rect-pbase">قطعة</span><select class="bsel" id="rect-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="rect-bi-base"></span><input type="number" class="pinp" id="rect-bp-base" value="0" min="0"><span class="psym" id="rect-bps-base">ج.م</span></div>
+        <div class="szrow"><span class="badge">5"</span><span class="qty" id="rectq-5">0</span><span class="qlbl" id="rect-p5">قطعة</span><select class="bsel" id="rect-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="rect-bi-5"></span><input type="number" class="pinp" id="rect-bp5" value="0" min="0"><span class="psym" id="rect-bps-5">ج.م</span></div>
+        <div class="szrow"><span class="badge">18"</span><span class="qty" id="rectq-18">0</span><span class="qlbl" id="rect-p18">بالونة</span></div>
         <div class="bagrow"><div class="ptog"><button class="pb on" id="rect18-piece">بالقطعة</button><button class="pb" id="rect18-bag">بالكيس</button></div></div>
-        <div class="prow" id="rect18-piece-row"><span>سعر القطعة:</span><input type="number" class="pinp" id="rect-pp18" value="0" min="0"><span class="psym" id="rect-pps18">ج.م</span></div>
+        <div class="prow" id="rect18-piece-row"><span id="rect-e18">سعر القطعة:</span><input type="number" class="pinp" id="rect-pp18" value="0" min="0"><span class="psym" id="rect-pps18">ج.م</span></div>
         <div class="bagrow" id="rect18-bag-row" style="display:none"><select class="bsel" id="rect-bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="rect-bi18"></span><input type="number" class="pinp" id="rect-bp18" value="0" min="0"><span class="psym" id="rect-bps18b">ج.م</span></div>
       </div>
       <div class="bres">
@@ -615,11 +447,11 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
           <div class="stitle" style="margin:0" id="bl-col-prices">الأسعار (مستقلة):</div>
           <button class="copy-btn" id="btn-col-copy">📋 نسخ من الجارلاند</button>
         </div>
-        <div class="szrow"><span class="badge" id="col-base-badge">8"</span><span class="qty" id="colq-base">0</span><span class="qlbl">قطعة</span><select class="bsel" id="col-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="col-bi-base"></span><input type="number" class="pinp" id="col-bp-base" value="0" min="0"><span class="psym" id="col-bps-base">ج.م</span></div>
-        <div class="szrow"><span class="badge">5"</span><span class="qty" id="colq-5">0</span><span class="qlbl">قطعة</span><select class="bsel" id="col-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="col-bi-5"></span><input type="number" class="pinp" id="col-bp5" value="0" min="0"><span class="psym" id="col-bps-5">ج.م</span></div>
-        <div class="szrow"><span class="badge">18"</span><span class="qty" id="colq-18">0</span><span class="qlbl">بالونة</span></div>
+        <div class="szrow"><span class="badge" id="col-base-badge">8"</span><span class="qty" id="colq-base">0</span><span class="qlbl" id="col-pbase">قطعة</span><select class="bsel" id="col-bag-base"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="col-bi-base"></span><input type="number" class="pinp" id="col-bp-base" value="0" min="0"><span class="psym" id="col-bps-base">ج.م</span></div>
+        <div class="szrow"><span class="badge">5"</span><span class="qty" id="colq-5">0</span><span class="qlbl" id="col-p5">قطعة</span><select class="bsel" id="col-bag5"><option value="100">100</option><option value="50">50</option></select><span class="binfo" id="col-bi-5"></span><input type="number" class="pinp" id="col-bp5" value="0" min="0"><span class="psym" id="col-bps-5">ج.م</span></div>
+        <div class="szrow"><span class="badge">18"</span><span class="qty" id="colq-18">0</span><span class="qlbl" id="col-p18">بالونة</span></div>
         <div class="bagrow"><div class="ptog"><button class="pb on" id="col18-piece">بالقطعة</button><button class="pb" id="col18-bag">بالكيس</button></div></div>
-        <div class="prow" id="col18-piece-row"><span>سعر القطعة:</span><input type="number" class="pinp" id="col-pp18" value="0" min="0"><span class="psym" id="col-pps18">ج.م</span></div>
+        <div class="prow" id="col18-piece-row"><span id="col-e18">سعر القطعة:</span><input type="number" class="pinp" id="col-pp18" value="0" min="0"><span class="psym" id="col-pps18">ج.م</span></div>
         <div class="bagrow" id="col18-bag-row" style="display:none"><select class="bsel" id="col-bag18"><option value="5">5</option><option value="3">3</option></select><span class="binfo" id="col-bi18"></span><input type="number" class="pinp" id="col-bp18" value="0" min="0"><span class="psym" id="col-bps18b">ج.م</span></div>
       </div>
       <div class="bres">
@@ -664,7 +496,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;b
     <button class="btn-out" id="btn-b-reset">🔄 إعادة تعيين</button>
     <button class="btn-out" id="btn-b-quote">🖨️ عرض سعر للعميل</button>
     <button class="btn-out" id="btn-b-wa">💬 مشاركة عبر واتساب</button>
-    <div class="footer"><div class="ftext">Designed by <strong>Rania Alwais</strong></div></div>
+    <div class="footer no-print"><div class="ftext">Designed by <strong>Rania Alwais</strong></div></div>
   </div>
 </div>
 <script>
@@ -676,13 +508,32 @@ var WASTAGE=1.10,minProfit=0,brands=[];
 var gMat=0,rMat=0,rectMat=0,colMat=0;
 var eLast={cost:0,profit:0,price:0},bLast={total:0,profit:0,price:0};
 
-var CUR={EG:{sym:"ج.م",mk:30},SA:{sym:"ر.س",mk:35},AE:{sym:"د.إ",mk:35},KW:{sym:"د.ك",mk:40},QA:{sym:"ر.ق",mk:40},JO:{sym:"د.أ",mk:30},US:{sym:"$",mk:40},GB:{sym:"£",mk:40},FR:{sym:"EUR",mk:40},DE:{sym:"EUR",mk:40}};
+var CUR={EG:{sym:"ج.م",iso:"EGP",mk:30},SA:{sym:"ر.س",iso:"SAR",mk:35},AE:{sym:"د.إ",iso:"AED",mk:35},KW:{sym:"د.ك",iso:"KWD",mk:40},QA:{sym:"ر.ق",iso:"QAR",mk:40},JO:{sym:"د.أ",iso:"JOD",mk:30},US:{sym:"$",iso:"$",mk:40},GB:{sym:"£",iso:"£",mk:40},FR:{sym:"EUR",iso:"EUR",mk:40},DE:{sym:"EUR",iso:"EUR",mk:40}};
 var RCP={slim:{base:"8\"",bq:24,q5:18,q18:2},lush:{base:"11\"/12\"",bq:16,q5:14,q18:2}};
 
 function g(id){return document.getElementById(id);}
 function v(id){return parseFloat(g(id).value)||0;}
 function vi(id){return parseInt(g(id).value)||0;}
-function fmt(n){return sym+" "+n.toFixed(sym==="د.ك"||sym==="د.أ"?3:2);}
+function fmt(n){var cc=g("country")?g("country").value:"EG";return sym+" "+n.toFixed(cc==="KW"||cc==="JO"?3:2);}
+function curSym(){var c=g("country").value,cur=CUR[c]||CUR.EG;return lang==="ar"?cur.sym:(cur.iso||cur.sym);}
+function refreshCurSym(){
+  sym=curSym();
+  var ids=["es-b","es-h","es-s","es-m","es-w","es-ex","es-ls","es-mr","es-sr","es-wk","es-d","es-disc",
+    "bps-base","bps-5","pps-18","bps-18b","g24s","g36s","bs-h","bs-s","st-sym",
+    "r-bps-base","r-bps-5","r-pps18","r-bps18b",
+    "rect-bps-base","rect-bps-5","rect-pps18","rect-bps18b",
+    "col-bps-base","col-bps-5","col-pps18","col-bps18b"];
+  ids.forEach(function(id){var e=g(id);if(e)e.textContent=sym;});
+  var sel=g("country");
+  if(sel){
+    var flags={EG:"🇪🇬",SA:"🇸🇦",AE:"🇦🇪",KW:"🇰🇼",QA:"🇶🇦",JO:"🇯🇴",US:"🇺🇸",GB:"🇬🇧",FR:"🇫🇷",DE:"🇩🇪"};
+    Object.keys(CUR).forEach(function(code){
+      var opt=sel.querySelector('option[value="'+code+'"]');
+      if(opt)opt.textContent=flags[code]+" "+(lang==="ar"?CUR[code].sym:(CUR[code].iso||CUR[code].sym));
+    });
+  }
+  calcEvent();calcBSum();
+}
 function toM(x,u){return u==="ft"?x*0.3048:x;}
 function nbags(q,b){return q>0?Math.ceil(q/b):0;}
 function aw(n){return Math.ceil(n*WASTAGE);}
@@ -704,18 +555,11 @@ function ptog(aId,bId,aOn){
 // ── COUNTRY ─────────────────────────────────────────────
 function setCountry(){
   var c=g("country").value,cur=CUR[c]||CUR.EG;
-  sym=cur.sym;
-  var ids=["es-b","es-h","es-s","es-m","es-w","es-ex","es-ls","es-mr","es-sr","es-d","es-disc",
-    "bps-base","bps-5","pps-18","bps-18b","g24s","g36s","bs-h","bs-s","st-sym",
-    "r-bps-base","r-bps-5","r-pps18","r-bps18b",
-    "rect-bps-base","rect-bps-5","rect-pps18","rect-bps18b",
-    "col-bps-base","col-bps-5","col-pps18","col-bps18b"];
-  ids.forEach(function(id){var e=g(id);if(e)e.textContent=sym;});
   markup=cur.mk/10;
   g("b-markup").value=cur.mk;
   g("markup-disp").textContent=markup.toFixed(1);
   g("e-pct").value=cur.mk;
-  calcEvent();calcBSum();
+  refreshCurSym();
 }
 
 // ── MODE / LEVEL ────────────────────────────────────────
@@ -743,16 +587,18 @@ function setGStyle(st){
   var r=RCP[st];
   var badge=r.base;
   ["g-base-badge","r-base-badge","rect-base-badge","col-base-badge"].forEach(function(id){setTxt(id,badge);});
-  var lm=lang==="ar"?{slim:"نحيف",lush:"ممتلئ",m:"لكل متر"}:{slim:"Slim",lush:"Lush",m:"per meter"};
-  g("garland-info").textContent=(st==="slim"?lm.slim:lm.lush)+": "+r.bq+"×"+r.base+" + "+r.q5+"×5\" + "+r.q18+"×18\" "+lm.m;
+  var t=TR[lang]||TR.en;
+  var lbl=st==="slim"?t.sst:t.slt;
+  g("garland-info").textContent=lbl+": "+r.bq+"×"+r.base+" + "+r.q5+"×5\" + "+r.q18+"×18\" "+(t.per_meter||"per meter");
   calcGarland();calcRound();calcRect();calcCol();
 }
 
 // ── UNIT TOGGLES ────────────────────────────────────────
-function setSzG(u){szG=u;ptog("pg-m","pg-ft",u==="m");setTxt("g-sym",u==="m"?"م":"ft");calcGarland();}
-function setSzR(u){szR=u;ptog("pr-m","pr-ft",u==="m");setTxt("r-sym",u==="m"?"م":"ft");calcRound();}
-function setSzRect(u){szRect=u;ptog("prect-m","prect-ft",u==="m");var s=u==="m"?"م":"ft";setTxt("rect-sym",s);setTxt("rect-sym2",s);calcRect();}
-function setSzCol(u){szCol=u;ptog("pcol-m","pcol-ft",u==="m");setTxt("col-sym",u==="m"?"م":"ft");calcCol();}
+function mSym(){return lang==="ar"?"م":"m";}
+function setSzG(u){szG=u;ptog("pg-m","pg-ft",u==="m");setTxt("g-sym",u==="m"?mSym():"ft");calcGarland();}
+function setSzR(u){szR=u;ptog("pr-m","pr-ft",u==="m");setTxt("r-sym",u==="m"?mSym():"ft");calcRound();}
+function setSzRect(u){szRect=u;ptog("prect-m","prect-ft",u==="m");var s=u==="m"?mSym():"ft";setTxt("rect-sym",s);setTxt("rect-sym2",s);calcRect();}
+function setSzCol(u){szCol=u;ptog("pcol-m","pcol-ft",u==="m");setTxt("col-sym",u==="m"?mSym():"ft");calcCol();}
 
 // ── 18" TOGGLES ─────────────────────────────────────────
 function set18(prefix,m){
@@ -786,7 +632,7 @@ function recipe(m){
 function c18cost(qty,mode18,ppId,bagSzId,bpId,biId){
   if(mode18==="piece")return qty*v(ppId);
   var bs=vi(bagSzId)||5,bags=nbags(qty,bs);
-  var e=g(biId);if(e)e.textContent=bags>0?bags+(lang==="ar"?" كيس":" bags"):"";
+  var e=g(biId);if(e)e.textContent=bags>0?bags+((TR[lang]||TR.en).unit_bags||" bags"):"";
   return bags*v(bpId);
 }
 
@@ -794,8 +640,9 @@ function c18cost(qty,mode18,ppId,bagSzId,bpId,biId){
 function bagsCost(rec,bagBaseId,bpBaseId,biBaseId,bag5Id,bp5Id,bi5Id){
   var bBase=nbags(rec.base,vi(bagBaseId)||100);
   var b5=nbags(rec.q5,vi(bag5Id)||100);
-  var eBase=g(biBaseId);if(eBase)eBase.textContent=bBase>0?bBase+(lang==="ar"?" كيس":" bags"):"";
-  var e5=g(bi5Id);if(e5)e5.textContent=b5>0?b5+(lang==="ar"?" كيس":" bags"):"";
+  var ub=(TR[lang]||TR.en).unit_bags||" bags";
+  var eBase=g(biBaseId);if(eBase)eBase.textContent=bBase>0?bBase+ub:"";
+  var e5=g(bi5Id);if(e5)e5.textContent=b5>0?b5+ub:"";
   return{cBase:bBase*v(bpBaseId),c5:b5*v(bp5Id),bags:bBase+b5};
 }
 
@@ -820,7 +667,7 @@ function calcGarland(){
 function calcRound(){
   var d=toM(v("rdiam"),szR),half=parseFloat(g("r-half").value)||1;
   var circ=Math.PI*d*half;
-  g("r-lin-box").textContent=(lang==="ar"?"المتر الطولي المكافئ:":"Linear meters:")+": "+circ.toFixed(2)+" m";
+  g("r-lin-box").textContent=(TR[lang]||TR.en).lin_meters+": "+circ.toFixed(2)+" m";
   var rec=recipe(circ);
   setTxt("rq-base",rec.base);setTxt("rq-5",rec.q5);setTxt("rq-18",rec.q18);
   var b=bagsCost(rec,"r-bag-base","r-bp-base","r-bi-base","r-bag5","r-bp5","r-bi-5");
@@ -837,7 +684,7 @@ function calcRound(){
 function calcRect(){
   var w=toM(v("rw"),szRect),h=toM(v("rh"),szRect);
   var linM=(w*h)/0.35;
-  g("rect-lin-box").textContent=(lang==="ar"?"المتر الطولي المكافئ:":"Linear meters:")+": "+linM.toFixed(2)+" m";
+  g("rect-lin-box").textContent=(TR[lang]||TR.en).lin_meters+": "+linM.toFixed(2)+" m";
   var rec=recipe(linM);
   setTxt("rectq-base",rec.base);setTxt("rectq-5",rec.q5);setTxt("rectq-18",rec.q18);
   var b=bagsCost(rec,"rect-bag-base","rect-bp-base","rect-bi-base","rect-bag5","rect-bp5","rect-bi-5");
@@ -877,12 +724,12 @@ function calcBSum(){
   setTxt("b-out-price",empty?"—":fmt(price));
   setTxt("b-out-dep",empty?"—":fmt(price*.5));
   setTxt("b-out-bal",empty?"—":fmt(price*.5));
-  var lesson=g("b-lesson"),warn=g("b-minwarn");
-  if(empty){lesson.className="lesson n";lesson.textContent=lang==="ar"?"أدخلي أسعار البالونات واضبطي المعامل.":"Enter balloon prices and set multiplier.";warn.className="minwarn";return;}
+  var lesson=g("b-lesson"),warn=g("b-minwarn"),t=TR[lang]||TR.en;
+  if(empty){lesson.className="lesson n";lesson.textContent=t.b_empty;warn.className="minwarn";return;}
   var apc=Math.round((profit/price)*100);
   lesson.className="lesson "+(apc<20?"r":apc<30?"o":"g");
-  lesson.textContent=rep(lang==="ar"?"تكلفة موادك {c} × {m} = سعر مقترح {px}. ربحك: {pr}.":"Material cost {c} × {m} = suggested price {px}. Profit: {pr}.",{c:fmt(tot),m:markup.toFixed(1),px:fmt(price),pr:fmt(profit)});
-  if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=(lang==="ar"?"⚠️ الربح الحالي (":"⚠️ Current profit (")+fmt(profit)+(lang==="ar"?") أقل من حدك الأدنى (":" is below your minimum (")+fmt(minProfit)+")";}
+  lesson.textContent=rep(t.b_lesson_tmpl,{c:fmt(tot),m:markup.toFixed(1),px:fmt(price),pr:fmt(profit)});
+  if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=rep(t.b_minwarn_tmpl,{p:fmt(profit),m:fmt(minProfit)});}
   else warn.className="minwarn";
   autoSave();
 }
@@ -898,10 +745,10 @@ function calcEvent(){
     setTxt("eq-mk","= "+fmt(mk));setTxt("eq-sk","= "+fmt(sk));
     setTxt("ltotal-val",fmt(labor));
   }
-  var base=mat+labor+v("e-delivery");
+  var base=mat+labor+v("e-workers")+v("e-delivery");
   var oh=level==="starter"?0:base*(v("e-oh")/100);
   var cost=base+oh,disc=v("e-disc");
-  var pct=v("e-pct")||30,profit=cost*(pct/100),price=cost+profit-disc;
+  var pct=v("e-pct")||30,grossProfit=cost*(pct/100),profit=grossProfit-disc,price=cost+profit;
   eLast={cost:cost,profit:profit,price:price};
   var empty=cost===0;
   setTxt("e-out-cost",empty?"—":fmt(cost));
@@ -909,16 +756,16 @@ function calcEvent(){
   setTxt("e-out-price",empty?"—":fmt(price));
   setTxt("e-out-dep",empty?"—":fmt(price*.5));
   setTxt("e-out-bal",empty?"—":fmt(price*.5));
-  var lesson=g("e-lesson"),warn=g("e-minwarn");
-  if(empty){lesson.className="lesson n";lesson.textContent=lang==="ar"?"أدخلي تكاليفك لرؤية الحساب الكامل.":"Enter your costs to see the full calculation.";warn.className="minwarn";autoSave();return;}
+  var lesson=g("e-lesson"),warn=g("e-minwarn"),t=TR[lang]||TR.en;
+  if(empty){lesson.className="lesson n";lesson.textContent=t.e_empty;warn.className="minwarn";autoSave();return;}
   var apc=price>0?Math.round((price-cost)/price*100):0;
   var cls,txt;
-  if(apc<15){cls="r";txt=lang==="ar"?"⚠️ هامش "+apc+"% فقط — ارفعي نسبة ربحك.":"⚠️ Margin only "+apc+"% — raise your profit %.";}
-  else if(apc<25){cls="o";txt=lang==="ar"?"تكلفتك "+fmt(cost)+"، ربحك "+fmt(profit)+"، سعرك "+fmt(price)+". يمكن تحسينه.":"Cost "+fmt(cost)+", profit "+fmt(profit)+", price "+fmt(price)+". Can improve.";}
-  else if(apc<40){cls="g";txt=lang==="ar"?"تكلفتك "+fmt(cost)+"، ربحك "+fmt(profit)+"، سعر العميل "+fmt(price)+".":"Cost "+fmt(cost)+", profit "+fmt(profit)+", charge "+fmt(price)+".";}
-  else{cls="g";txt=lang==="ar"?"ممتاز! تكلفتك "+fmt(cost)+"، ربحك "+fmt(profit)+"، سعر "+fmt(price)+".":"Excellent! Cost "+fmt(cost)+", profit "+fmt(profit)+", charge "+fmt(price)+".";}
+  if(apc<15){cls="r";txt=rep(t.e_lesson_r,{apc:apc});}
+  else if(apc<25){cls="o";txt=rep(t.e_lesson_o,{c:fmt(cost),pr:fmt(profit),px:fmt(price)});}
+  else if(apc<40){cls="g";txt=rep(t.e_lesson_g,{c:fmt(cost),pr:fmt(profit),px:fmt(price)});}
+  else{cls="g";txt=rep(t.e_lesson_x,{c:fmt(cost),pr:fmt(profit),px:fmt(price)});}
   lesson.className="lesson "+cls;lesson.textContent=txt;
-  if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=(lang==="ar"?"⚠️ الربح (":"⚠️ Profit (")+fmt(profit)+(lang==="ar"?") أقل من حدك الأدنى (":" below minimum (")+fmt(minProfit)+")";}
+  if(minProfit>0&&profit<minProfit){warn.className="minwarn on";warn.textContent=rep(t.e_minwarn_tmpl,{p:fmt(profit),m:fmt(minProfit)});}
   else warn.className="minwarn";
   autoSave();
 }
@@ -929,7 +776,7 @@ function doTransfer(){
   g("e-balloons").value=tot.toFixed(2);
   calcEvent();
   var ok=g("transfer-ok");
-  ok.textContent=lang==="ar"?"✅ تم النقل! أضيفي الآن العمالة والتوصيل.":"✅ Transferred! Now add labor and delivery.";
+  ok.textContent=(TR[lang]||TR.en).transfer_ok;
   ok.className="transfer-ok on";
   setTimeout(function(){ok.className="transfer-ok";},4000);
   setMode("event");
@@ -952,7 +799,7 @@ function copyFromGarland(prefix){
 
 // ── RESET ────────────────────────────────────────────────
 function resetEvent(){
-  ["e-balloons","e-helium","e-supplies","e-metal","e-wood","e-extras","e-ls","e-mh","e-mr","e-sh","e-sr","e-delivery","e-oh","e-disc"].forEach(function(id){var e=g(id);if(e)e.value=0;});
+  ["e-balloons","e-helium","e-supplies","e-metal","e-wood","e-extras","e-ls","e-mh","e-mr","e-sh","e-sr","e-workers","e-delivery","e-oh","e-disc"].forEach(function(id){var e=g(id);if(e)e.value=0;});
   g("e-pct").value=30;calcEvent();
 }
 function resetBalloons(){
@@ -966,22 +813,22 @@ function resetBalloons(){
 function openQ(src){
   g("q-date").value=new Date().toISOString().split("T")[0];
   var price=src==="event"?eLast.price:bLast.price;
-  var ar=lang==="ar",lines="";
+  var t=TR[lang]||TR.en,lines="";
   function ql(lbl,val){if(val>0)lines+='<div class="qline"><span>'+lbl+"</span><span>"+fmt(val)+"</span></div>";}
   if(src==="event"){
-    ql("🎈 "+(ar?"البالونات":"Balloons"),v("e-balloons"));
-    ql("✨ "+(ar?"مواد ومستلزمات ديكورية":"Decor & Supplies"),v("e-helium")+v("e-supplies")+v("e-extras"));
-    ql("🪵 "+(ar?"إيجار الديكورات":"Rent Decorations"),v("e-metal")+v("e-wood"));
-    ql("🚗 "+(ar?"التوصيل":"Delivery"),v("e-delivery"));
+    ql("🎈 "+t.qli_balloons,v("e-balloons"));
+    ql("✨ "+t.qli_decor,v("e-helium")+v("e-supplies")+v("e-extras"));
+    ql("🪵 "+t.qli_rent,v("e-metal")+v("e-wood"));
+    ql("🚗 "+t.qli_delivery,v("e-delivery"));
     var disc=v("e-disc");
-    if(disc>0)lines+='<div class="qline"><span>🏷️ '+(ar?"خصم":"Discount")+'</span><span>- '+fmt(disc)+"</span></div>";
+    if(disc>0)lines+='<div class="qline"><span>🏷️ '+t.qli_discount+'</span><span>- '+fmt(disc)+"</span></div>";
   } else {
-    if(gMat>0)ql("🌿 "+(ar?"جارلاند":"Garland"),gMat*markup);
-    if(rMat>0)ql("⭕ "+(ar?"خلفية دائرية":"Round Backdrop"),rMat*markup);
-    if(rectMat>0)ql("▭ "+(ar?"جدار مستطيل":"Rect. Wall"),rectMat*markup);
-    if(colMat>0)ql("🎊 "+(ar?"أعمدة":"Columns"),colMat*markup);
-    ql("💨 "+(ar?"هيليوم":"Helium"),v("b-helium"));
-    ql("🎀 "+(ar?"مستلزمات":"Supplies"),v("b-supplies"));
+    if(gMat>0)ql("🌿 "+t.qli_garland,gMat*markup);
+    if(rMat>0)ql("⭕ "+t.qli_round,rMat*markup);
+    if(rectMat>0)ql("▭ "+t.qli_rect,rectMat*markup);
+    if(colMat>0)ql("🎊 "+t.qli_columns,colMat*markup);
+    ql("💨 "+t.qli_helium,v("b-helium"));
+    ql("🎀 "+t.qli_supplies,v("b-supplies"));
   }
   g("q-lines").innerHTML=lines||'<div style="font-size:13px;color:var(--t3)">—</div>';
   g("q-total-val").textContent=price>0?fmt(price):"—";
@@ -990,7 +837,6 @@ function openQ(src){
   var notes=g("q-notes").value;
   g("q-notes-disp").textContent=notes?"📝 "+notes:"";
   // Apply translations to quote modal labels
-  var t=TR[lang]||TR.en;
   var qkeys=["ql-title","ql-biz","ql-date","ql-client","ql-event","ql-notes","ql-breakdown","ql-total","ql-dep","ql-bal","ql-close","ql-print"];
   qkeys.forEach(function(k){var e=g(k);if(e&&t[k])e.textContent=t[k];});
   g("m-quote").className="modal on";
@@ -1001,7 +847,14 @@ function printQ(){
   g("ph-date").textContent=g("q-date").value||"";
   g("print-hdr").style.display="block";
   saveToHistory();
+  // Browsers inject their own header/footer into printed pages using
+  // document.title — swap it to the trainee's own business name (or a
+  // neutral fallback) so a client never sees "by Rania Alwais" there.
+  var origTitle=document.title;
+  var bizName=(g("q-biz").value||"").trim();
+  document.title=bizName||"Price It Right";
   window.print();
+  document.title=origTitle;
   setTimeout(function(){g("print-hdr").style.display="none";},1200);
 }
 
@@ -1056,7 +909,6 @@ function shareWA(src){
   msg+=m.total+fmt(price)+nl;
   msg+=m.deposit+fmt(price*.5)+nl;
   msg+=m.balance+fmt(price*.5)+nl;
-  msg+="━━━━━━━━━━━━"+nl+"✨ Designed by Rania Alwais";
   window.open("https://wa.me/?text="+encodeURIComponent(msg),"_blank");
 }
 
@@ -1099,9 +951,9 @@ function renderBrands(){
   var c=g("brands-list");c.innerHTML="";
   brands.forEach(function(b){
     var row=document.createElement("div");row.className="brand-row";
-    var ni=document.createElement("input");ni.type="text";ni.placeholder=lang==="ar"?"اسم البراند":"Brand";ni.value=b.name||"";ni.style.flex="1";
+    var ni=document.createElement("input");ni.type="text";ni.placeholder=(TR[lang]||TR.en).ph_brand_name;ni.value=b.name||"";ni.style.flex="1";
     ni.onchange=function(){updateBrandField(b.id,"name",this.value);};
-    var pi=document.createElement("input");pi.type="number";pi.placeholder=lang==="ar"?"سعر":"Price";pi.value=b.price||0;pi.style.width="62px";
+    var pi=document.createElement("input");pi.type="number";pi.placeholder=(TR[lang]||TR.en).ph_brand_price;pi.value=b.price||0;pi.style.width="62px";
     pi.onchange=function(){updateBrandField(b.id,"price",this.value);};
     var si=document.createElement("select");si.style.cssText="width:60px;padding:4px;border:1.5px solid var(--border);border-radius:8px;";
     ["100","50"].forEach(function(sz){var o=document.createElement("option");o.value=sz;o.textContent=sz;if(b.size==sz)o.selected=true;si.appendChild(o);});
@@ -1115,7 +967,7 @@ function updateBrandDropdowns(){
   ["g-brand-base","g-brand-5"].forEach(function(selId,idx){
     var sel=g(selId);if(!sel)return;
     var cur=sel.value;
-    sel.innerHTML='<option value="">'+(lang==="ar"?"— براند —":"— Brand —")+"</option>";
+    sel.innerHTML='<option value="">'+(TR[lang]||TR.en).ph_brand_dropdown+"</option>";
     brands.forEach(function(b){
       if(!b.name)return;
       var opt=document.createElement("option");opt.value=b.id;
@@ -1148,7 +1000,7 @@ function renderHistory(){
   var c=g("history-list");if(!c)return;
   try{
     var raw=localStorage.getItem("rania_history");
-    if(!raw){c.innerHTML='<div style="font-size:12px;color:var(--t3);padding:8px;text-align:center">'+(lang==="ar"?"لا يوجد سجل بعد":"No history yet")+"</div>";return;}
+    if(!raw){c.innerHTML='<div style="font-size:12px;color:var(--t3);padding:8px;text-align:center">'+(TR[lang]||TR.en).no_history+"</div>";return;}
     var hist=JSON.parse(raw);c.innerHTML="";
     hist.forEach(function(h,i){
       var row=document.createElement("div");
@@ -1157,7 +1009,7 @@ function renderHistory(){
       left.innerHTML='<div style="font-size:13px;font-weight:700;color:var(--t2)">'+h.client+" — "+h.event+'</div><div style="font-size:11px;color:var(--t3)">'+h.date+"</div>";
       var right=document.createElement("div");
       right.style.cssText="font-size:14px;font-weight:700;color:var(--pink)";
-      right.textContent=(h.sym||sym)+" "+Math.round(h.price);
+      right.textContent=sym+" "+Math.round(h.price);
       row.appendChild(left);row.appendChild(right);c.appendChild(row);
     });
   }catch(e){c.innerHTML="";}
@@ -1203,6 +1055,7 @@ ar:{dir:"rtl",
  "el-s2":"العمالة والوقت","el-ls":"تكلفة عمالتك الإجمالية","eh-ls":"مجموع ما تدفعيه لنفسك",
  "el-mh":"🎈 تصنيع البالونات","el-hrs":"ساعة","el-hrs2":"ساعة","el-sh":"🔧 تركيب في المكان",
  "el-ltotal":"إجمالي العمالة",
+ "el-workers":"أجرة العمال","eh-workers":"أجور المساعدين اللي بيشتغلوا معاكي في المناسبة",
  "el-delivery":"التوصيل","eh-delivery":"تكلفة النقل إلى المكان والعودة",
  "el-oh":"مصاريف عامة %","eh-oh":"هاتف، صيانة، بنزين — عادةً 5-10%",
  "el-disc":"خصم للعميل","eh-disc":"فقط إذا أعطيتِ سعراً خاصاً",
@@ -1252,7 +1105,30 @@ ar:{dir:"rtl",
  "ql-title":"عرض السعر","ql-biz":"اسم النشاط","ql-date":"التاريخ",
  "ql-client":"اسم العميل","ql-event":"نوع الفعالية","ql-notes":"ملاحظات",
  "ql-breakdown":"تفصيل الخدمات","ql-total":"السعر الإجمالي",
- "ql-dep":"العربون 50%","ql-bal":"المبلغ المتبقي","ql-close":"إغلاق","ql-print":"طباعة"
+ "ql-dep":"العربون 50%","ql-bal":"المبلغ المتبقي","ql-close":"إغلاق","ql-print":"طباعة",
+ "unit_bags":" كيس","per_meter":"لكل متر",
+ "b_empty":"أدخلي أسعار البالونات واضبطي المعامل.",
+ "b_lesson_tmpl":"تكلفة موادك {c} × {m} = سعر مقترح {px}. ربحك: {pr}.",
+ "b_minwarn_tmpl":"⚠️ الربح الحالي ({p}) أقل من حدك الأدنى ({m})",
+ "e_empty":"أدخلي تكاليفك لرؤية الحساب الكامل.",
+ "e_lesson_r":"⚠️ هامش {apc}% فقط — ارفعي نسبة ربحك.",
+ "e_lesson_o":"تكلفتك {c}، ربحك {pr}، سعرك {px}. يمكن تحسينه.",
+ "e_lesson_g":"تكلفتك {c}، ربحك {pr}، سعر العميل {px}.",
+ "e_lesson_x":"ممتاز! تكلفتك {c}، ربحك {pr}، سعر {px}.",
+ "e_minwarn_tmpl":"⚠️ الربح ({p}) أقل من حدك الأدنى ({m})",
+ "lin_meters":"المتر الطولي المكافئ",
+ "ph_brand_name":"اسم البراند","ph_brand_dropdown":"— براند —",
+ "r-pbase":"قطعة — أكياس","r-p5":"قطعة — أكياس","r-p18":"بالونة",
+ "rect-pbase":"قطعة — أكياس","rect-p5":"قطعة — أكياس","rect-p18":"بالونة",
+ "col-pbase":"قطعة — أكياس","col-p5":"قطعة — أكياس","col-p18":"بالونة",
+ "r-e18":"سعر القطعة:","rect-e18":"سعر القطعة:","col-e18":"سعر القطعة:",
+ "transfer_ok":"✅ تم النقل! أضيفي الآن العمالة والتوصيل.",
+ "ph_brand_price":"سعر","no_history":"لا يوجد سجل بعد",
+ "ph_biz":"اسم نشاطك","ph_client":"اسم العميل",
+ "ph_event":"زفاف، عيد ميلاد...","ph_notes":"موعد التسليم، شروط الدفع...",
+ "qli_balloons":"البالونات","qli_decor":"مواد ومستلزمات ديكورية","qli_rent":"إيجار الديكورات",
+ "qli_delivery":"التوصيل","qli_discount":"خصم","qli_garland":"جارلاند","qli_round":"خلفية دائرية",
+ "qli_rect":"جدار مستطيل","qli_columns":"أعمدة","qli_helium":"هيليوم","qli_supplies":"مستلزمات"
 },
 en:{dir:"ltr",
  "tab-event":"🎉 Full Event","tab-balloons":"🎈 Balloons Only",
@@ -1267,6 +1143,7 @@ en:{dir:"ltr",
  "el-s2":"Labor & Time","el-ls":"Your total labor cost","eh-ls":"Total you pay yourself",
  "el-mh":"🎈 Making balloons","el-hrs":"hrs","el-hrs2":"hrs","el-sh":"🔧 Setup at venue",
  "el-ltotal":"Total labor",
+ "el-workers":"Worker wages","eh-workers":"Wages paid to helpers/staff for this event",
  "el-delivery":"Delivery","eh-delivery":"Transport cost to venue and back",
  "el-oh":"Overhead %","eh-oh":"Phone, maintenance, fuel — usually 5-10%",
  "el-disc":"Discount","eh-disc":"Only if giving a special price",
@@ -1316,7 +1193,30 @@ en:{dir:"ltr",
  "ql-title":"Client Quotation","ql-biz":"Business Name","ql-date":"Date",
  "ql-client":"Client Name","ql-event":"Event Type","ql-notes":"Notes",
  "ql-breakdown":"Service Breakdown","ql-total":"Total Price",
- "ql-dep":"Deposit 50%","ql-bal":"Balance Due","ql-close":"Close","ql-print":"Print"
+ "ql-dep":"Deposit 50%","ql-bal":"Balance Due","ql-close":"Close","ql-print":"Print",
+ "unit_bags":" bags","per_meter":"per meter",
+ "b_empty":"Enter balloon prices and set multiplier.",
+ "b_lesson_tmpl":"Material cost {c} × {m} = suggested price {px}. Profit: {pr}.",
+ "b_minwarn_tmpl":"⚠️ Current profit ({p}) is below your minimum ({m})",
+ "e_empty":"Enter your costs to see the full calculation.",
+ "e_lesson_r":"⚠️ Margin only {apc}% — raise your profit %.",
+ "e_lesson_o":"Cost {c}, profit {pr}, price {px}. Can improve.",
+ "e_lesson_g":"Cost {c}, profit {pr}, charge {px}.",
+ "e_lesson_x":"Excellent! Cost {c}, profit {pr}, charge {px}.",
+ "e_minwarn_tmpl":"⚠️ Profit ({p}) below minimum ({m})",
+ "lin_meters":"Linear meters",
+ "ph_brand_name":"Brand","ph_brand_dropdown":"— Brand —",
+ "r-pbase":"pcs — bags","r-p5":"pcs — bags","r-p18":"balloons",
+ "rect-pbase":"pcs — bags","rect-p5":"pcs — bags","rect-p18":"balloons",
+ "col-pbase":"pcs — bags","col-p5":"pcs — bags","col-p18":"balloons",
+ "r-e18":"Price each:","rect-e18":"Price each:","col-e18":"Price each:",
+ "transfer_ok":"✅ Transferred! Now add labor and delivery.",
+ "ph_brand_price":"Price","no_history":"No history yet",
+ "ph_biz":"Your business name","ph_client":"Client name",
+ "ph_event":"Wedding, birthday...","ph_notes":"Delivery time, payment terms...",
+ "qli_balloons":"Balloons","qli_decor":"Decor & Supplies","qli_rent":"Rent Decorations",
+ "qli_delivery":"Delivery","qli_discount":"Discount","qli_garland":"Garland","qli_round":"Round Backdrop",
+ "qli_rect":"Rect. Wall","qli_columns":"Columns","qli_helium":"Helium","qli_supplies":"Supplies"
 },
 fr:{dir:"ltr",
  "tab-event":"🎉 Événement complet","tab-balloons":"🎈 Ballons seulement",
@@ -1331,6 +1231,7 @@ fr:{dir:"ltr",
  "el-s2":"Main-d'œuvre & Temps","el-ls":"Coût total main-d'œuvre","eh-ls":"Total que vous vous payez",
  "el-mh":"🎈 Fabrication des ballons","el-hrs":"h","el-hrs2":"h","el-sh":"🔧 Installation sur site",
  "el-ltotal":"Total main-d'œuvre",
+ "el-workers":"Salaires du personnel","eh-workers":"Salaires versés aux assistants pour cet événement",
  "el-delivery":"Livraison","eh-delivery":"Coût de transport aller-retour",
  "el-oh":"Frais généraux %","eh-oh":"Téléphone, entretien, essence — 5-10%",
  "el-disc":"Remise","eh-disc":"Seulement si prix spécial",
@@ -1380,7 +1281,30 @@ fr:{dir:"ltr",
  "ql-title":"Devis Client","ql-biz":"Nom commercial","ql-date":"Date",
  "ql-client":"Nom du client","ql-event":"Type d'événement","ql-notes":"Notes",
  "ql-breakdown":"Détail des services","ql-total":"Prix total",
- "ql-dep":"Acompte 50%","ql-bal":"Solde restant","ql-close":"Fermer","ql-print":"Imprimer"
+ "ql-dep":"Acompte 50%","ql-bal":"Solde restant","ql-close":"Fermer","ql-print":"Imprimer",
+ "unit_bags":" sachets","per_meter":"par mètre",
+ "b_empty":"Entrez les prix des ballons et réglez le multiplicateur.",
+ "b_lesson_tmpl":"Coût matériaux {c} × {m} = prix suggéré {px}. Bénéfice : {pr}.",
+ "b_minwarn_tmpl":"⚠️ Bénéfice actuel ({p}) inférieur à votre minimum ({m})",
+ "e_empty":"Entrez vos coûts pour voir le calcul complet.",
+ "e_lesson_r":"⚠️ Marge de seulement {apc}% — augmentez votre pourcentage de profit.",
+ "e_lesson_o":"Coût {c}, bénéfice {pr}, prix {px}. Peut être amélioré.",
+ "e_lesson_g":"Coût {c}, bénéfice {pr}, prix client {px}.",
+ "e_lesson_x":"Excellent ! Coût {c}, bénéfice {pr}, prix {px}.",
+ "e_minwarn_tmpl":"⚠️ Bénéfice ({p}) inférieur au minimum ({m})",
+ "lin_meters":"Mètres linéaires",
+ "ph_brand_name":"Marque","ph_brand_dropdown":"— Marque —",
+ "r-pbase":"pcs — sachets","r-p5":"pcs — sachets","r-p18":"ballons",
+ "rect-pbase":"pcs — sachets","rect-p5":"pcs — sachets","rect-p18":"ballons",
+ "col-pbase":"pcs — sachets","col-p5":"pcs — sachets","col-p18":"ballons",
+ "r-e18":"Prix unitaire:","rect-e18":"Prix unitaire:","col-e18":"Prix unitaire:",
+ "transfer_ok":"✅ Transféré ! Ajoutez maintenant la main-d'œuvre et la livraison.",
+ "ph_brand_price":"Prix","no_history":"Aucun historique pour l'instant",
+ "ph_biz":"Nom de votre entreprise","ph_client":"Nom du client",
+ "ph_event":"Mariage, anniversaire...","ph_notes":"Heure de livraison, conditions de paiement...",
+ "qli_balloons":"Ballons","qli_decor":"Décoration et fournitures","qli_rent":"Location décorations",
+ "qli_delivery":"Livraison","qli_discount":"Remise","qli_garland":"Guirlande","qli_round":"Fond rond",
+ "qli_rect":"Mur rectangulaire","qli_columns":"Colonnes","qli_helium":"Hélium","qli_supplies":"Fournitures"
 },
 de:{dir:"ltr",
  "tab-event":"🎉 Vollständiges Event","tab-balloons":"🎈 Nur Ballons",
@@ -1395,6 +1319,7 @@ de:{dir:"ltr",
  "el-s2":"Arbeit & Zeit","el-ls":"Ihre gesamten Arbeitskosten","eh-ls":"Gesamtbetrag den Sie sich zahlen",
  "el-mh":"🎈 Ballons herstellen","el-hrs":"Std","el-hrs2":"Std","el-sh":"🔧 Aufbau vor Ort",
  "el-ltotal":"Gesamte Arbeit",
+ "el-workers":"Personalkosten","eh-workers":"Löhne für Helfer bei diesem Event",
  "el-delivery":"Lieferung","eh-delivery":"Transportkosten hin und zurück",
  "el-oh":"Gemeinkosten %","eh-oh":"Telefon, Wartung, Benzin — 5-10%",
  "el-disc":"Rabatt","eh-disc":"Nur bei Sonderpreis",
@@ -1444,7 +1369,30 @@ de:{dir:"ltr",
  "ql-title":"Kundenangebot","ql-biz":"Firmenname","ql-date":"Datum",
  "ql-client":"Kundenname","ql-event":"Veranstaltungstyp","ql-notes":"Notizen",
  "ql-breakdown":"Leistungsübersicht","ql-total":"Gesamtpreis",
- "ql-dep":"Anzahlung 50%","ql-bal":"Restbetrag","ql-close":"Schließen","ql-print":"Drucken"
+ "ql-dep":"Anzahlung 50%","ql-bal":"Restbetrag","ql-close":"Schließen","ql-print":"Drucken",
+ "unit_bags":" Beutel","per_meter":"pro Meter",
+ "b_empty":"Geben Sie die Ballonpreise ein und stellen Sie den Multiplikator ein.",
+ "b_lesson_tmpl":"Materialkosten {c} × {m} = empfohlener Preis {px}. Gewinn: {pr}.",
+ "b_minwarn_tmpl":"⚠️ Aktueller Gewinn ({p}) liegt unter Ihrem Minimum ({m})",
+ "e_empty":"Geben Sie Ihre Kosten ein, um die vollständige Berechnung zu sehen.",
+ "e_lesson_r":"⚠️ Marge nur {apc}% — erhöhen Sie Ihren Gewinnprozentsatz.",
+ "e_lesson_o":"Kosten {c}, Gewinn {pr}, Preis {px}. Kann verbessert werden.",
+ "e_lesson_g":"Kosten {c}, Gewinn {pr}, Kundenpreis {px}.",
+ "e_lesson_x":"Ausgezeichnet! Kosten {c}, Gewinn {pr}, Preis {px}.",
+ "e_minwarn_tmpl":"⚠️ Gewinn ({p}) unter dem Minimum ({m})",
+ "lin_meters":"Laufende Meter",
+ "ph_brand_name":"Marke","ph_brand_dropdown":"— Marke —",
+ "r-pbase":"Stk — Beutel","r-p5":"Stk — Beutel","r-p18":"Ballons",
+ "rect-pbase":"Stk — Beutel","rect-p5":"Stk — Beutel","rect-p18":"Ballons",
+ "col-pbase":"Stk — Beutel","col-p5":"Stk — Beutel","col-p18":"Ballons",
+ "r-e18":"Preis je:","rect-e18":"Preis je:","col-e18":"Preis je:",
+ "transfer_ok":"✅ Übertragen! Fügen Sie jetzt Arbeit und Lieferung hinzu.",
+ "ph_brand_price":"Preis","no_history":"Noch keine Historie",
+ "ph_biz":"Ihr Firmenname","ph_client":"Kundenname",
+ "ph_event":"Hochzeit, Geburtstag...","ph_notes":"Lieferzeit, Zahlungsbedingungen...",
+ "qli_balloons":"Ballons","qli_decor":"Deko & Zubehör","qli_rent":"Deko-Miete",
+ "qli_delivery":"Lieferung","qli_discount":"Rabatt","qli_garland":"Girlande","qli_round":"Runde Kulisse",
+ "qli_rect":"Rechteckige Wand","qli_columns":"Säulen","qli_helium":"Helium","qli_supplies":"Zubehör"
 }
 };
 
@@ -1460,9 +1408,17 @@ function setLang(l){
     var e=g(k);
     if(e) e.textContent=t[k];
   });
-  // Update currency symbol display
-  setTxt("st-sym",sym);
+  // Update currency symbol display (currency stays tied to country, but the
+  // symbol's script must follow the UI language — Arabic script only in ar)
+  refreshCurSym();
+  setTxt("g-sym",szG==="m"?mSym():"ft");
+  setTxt("r-sym",szR==="m"?mSym():"ft");
+  setTxt("rect-sym",szRect==="m"?mSym():"ft");setTxt("rect-sym2",szRect==="m"?mSym():"ft");
+  setTxt("col-sym",szCol==="m"?mSym():"ft");
+  g("q-biz").placeholder=t.ph_biz;g("q-client").placeholder=t.ph_client;
+  g("q-event").placeholder=t.ph_event;g("q-notes").placeholder=t.ph_notes;
   setGStyle(gStyle);
+  updateBrandDropdowns();
   calcEvent();calcBSum();
 }
 
@@ -1508,7 +1464,7 @@ function init(){
   // r-half
   g("r-half").onchange=calcRound;
   // Event inputs
-  ["e-balloons","e-helium","e-supplies","e-metal","e-wood","e-extras","e-ls","e-mh","e-mr","e-sh","e-sr","e-delivery","e-oh","e-disc","e-pct"].forEach(function(id){var e=g(id);if(e)e.oninput=calcEvent;});
+  ["e-balloons","e-helium","e-supplies","e-metal","e-wood","e-extras","e-ls","e-mh","e-mr","e-sh","e-sr","e-workers","e-delivery","e-oh","e-disc","e-pct"].forEach(function(id){var e=g(id);if(e)e.oninput=calcEvent;});
   // Balloon inputs - garland
   ["glen","bp-base","bp5","pp18","bp18","g24q","g24p","g36q","g36p","bobo-q","bobo-p","orbz-q","orbz-p","flow-q","flow-p","b-helium","b-supplies"].forEach(function(id){var e=g(id);if(e)e.oninput=calcGarland;});
   ["bag-base","bag5","bag18"].forEach(function(id){var e=g(id);if(e)e.onchange=calcGarland;});
@@ -1552,6 +1508,18 @@ function init(){
 }
 
 document.addEventListener("DOMContentLoaded",init);
+
+// ── OFFLINE SUPPORT ──────────────────────────────────────
+// Registers a cache-first service worker so the calculator keeps opening
+// with no internet connection after the first successful visit. Wrapped
+// defensively so that if registration fails for any reason (older browser,
+// non-secure context, etc.) the calculator keeps working online exactly as
+// before — this can never break the calculator itself.
+if("serviceWorker" in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
 </script>
 </body>
 </html>
